@@ -23,6 +23,8 @@ Doku  AMY   Daisy  C++   Reso  PM    Gran    Multi-DSP
 
 ## M0 – Projekt-Bootstrap ✅
 
+Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9db8a6521fef3c487e227540784c5300e3dc`.
+
 - [x] Bestandsaufnahme (lokal/Cloud, GitHub, Dokumente, Werkzeuge)
 - [x] Repository initialisiert, README, `.gitignore`, `AGENTS.md`
 - [x] Dokumentation übernommen bzw. Fehlen dokumentiert (`docs/handovers/README.md`)
