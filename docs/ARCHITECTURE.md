@@ -40,7 +40,7 @@ Wesentliche Eigenschaften:
 
 - **Steuerweg und Audioweg sind getrennt.** Tulip transportiert nur Steuerdaten, nie Audio.
 - In M1 läuft **keine eigene Firmware** auf dem AMYboard (D017). AMY bringt Karplus-Strong als Wellenform `KS` bereits mit (BELEGT, `amy/src/oscillators.c` `render_ks`, `ks_note_on`).
-- Stromversorgung des AMYboards in M1 **über eigenes USB-C** (siehe HARDWARE.md).
+- Stromversorgung des AMYboards in M1 **nicht über den Tulip**, sondern über eigenes USB-C oder den RackBrute-Bus (+12 V) (siehe HARDWARE.md §2.1, §6.4).
 
 ## 3. Schichten und Verantwortlichkeiten
 

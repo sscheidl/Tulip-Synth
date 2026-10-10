@@ -47,7 +47,7 @@ Kennzeichnung: **BELEGT** / **GESCHÄTZT** / **UNGEPRÜFT**.
 
 ### 2.1 Stromversorgung in M1 (verbindlich)
 
-- Das AMYboard wird in M1 **über eigenes USB-C-Netzteil** versorgt. Dann nutzt es seine eigenen 5 V statt der 3,3-V-Schiene des Tulip (BELEGT, README: „it uses the highest voltage present“).
+- Das AMYboard wird in M1 **nicht über den Tulip** versorgt, sondern über sein eigenes USB-C-Netzteil oder über den Bus einer RackBrute 6U (+12 V, 10-Pin; siehe §6.4). Es nutzt dann die höhere Spannung statt der 3,3-V-Schiene des Tulip (BELEGT, README: „it uses the highest voltage present“).
 - Begründung: Ein am Tulip versorgtes AMYboard zieht ~350 mA zusätzlich zu den ~575 mA des Tulip. Schwache Netzteile, dünne Kabel oder Hubs führen zu **Boot-Loops des Tulip** (BELEGT, README „Power note“).
 - Tulip an ein stabiles 1–2-A-Netzteil mit gutem Datenkabel, kein Hub.
 - Offen: ob bei gemeinsamer Masse über Grove und separater USB-Versorgung Brummschleifen am Audioausgang entstehen (UNGEPRÜFT).
@@ -127,7 +127,7 @@ In M1 wird **keine** Firmware geflasht. Ein offizielles AMYboard- oder Tulip-Upd
 ```text
 [Netzteil 5V 1–2A]──USB-C──[Tulip CC]──Grove I²C──[AMYboard: back "host"/tulip port]
                               │                        │
-                         (MIDI-Keyboard            [eigenes USB-C-Netzteil]
+                         (MIDI-Keyboard            [USB-C-Netzteil oder RackBrute-Bus +12 V]
                           an Tulip USB-Host            │
                           oder TRS-MIDI)          Line Out 3,5 mm ─► Mixer/Kopfhörer
 ```
@@ -210,15 +210,15 @@ Weitere Hersteller (z. B. Doepfer, Tiptop, DIY-Bausätze) sind nicht untersucht.
 
 | Gerät | Anzahl | +12 V | −12 V | +5 V | Quelle / Status |
 |---|---|---|---|---|---|
-| Arturia RackBrute (Netzteilmodul) | 2 | 1600 mA | 800 mA | **500 mA** | Angaben Eigentümer aus Arturia-Handbuch („Richtwerte“, max. 31,3 W) |
-| Frequency Central Routemaster (DIY-Netzteil + Busplatine) | 1 | ca. 500 mA | ca. 500 mA | 7805-Linearregler, Strom nicht dokumentiert | Bauanleitung/Forum: Linearregler 7812/7912/7805 an 12-V-AC-Steckernetzteil; ~500 mA je Schiene bei 1-A-Netzteil, mehr nur mit stärkerem Netzteil und größeren Kühlkörpern; Werte ±12/±15 V per Trimmer einstellbar (GESCHÄTZT, nicht am eigenen Exemplar geprüft) |
+| Arturia RackBrute 6U (Gehäuse mit herausschraubbarem Netzteilmodul, Bus +12/−12/+5 V hängt am Modul) | 2 | 1600 mA | 800 mA | **500 mA** | Angaben Eigentümer aus Arturia-Handbuch („Richtwerte“, max. 31,3 W); Händler: Busplatine mit 32 Steckplätzen, Netzteilmodul in der oberen Reihe mit Netzschalter und Spannungs-LEDs; **obere Reihe nur ~53 mm tief** (Busplatine), untere ~75 mm |
 
-**Hinweis zu den RackBrute-Angaben:** Im Handbuchtext stehen zusätzlich 1600 mA auf −12 V und 900 mA auf +5 V. Das widerspricht den Richtwerten. Die Richtwerte ergeben genau die angegebene Maximalleistung (12 V × 1,6 A + 12 V × 0,8 A + 5 V × 0,5 A = 31,3 W) und gelten deshalb hier als verbindlich. Im 6U-RackBrute ist der Strom zusätzlich auf vier getrennte Kreise aufgeteilt; das Budget gilt dann je Kreis anteilig (Aufteilung UNGEPRÜFT).
+**Hinweis zu den RackBrute-Angaben:** Im Handbuchtext stehen zusätzlich 1600 mA auf −12 V und 900 mA auf +5 V. Das widerspricht den Richtwerten. Auch Händlerangaben schwanken (+5 V: 900 mA bzw. 800 mA). Die Richtwerte ergeben genau die angegebene Maximalleistung (12 V × 1,6 A + 12 V × 0,8 A + 5 V × 0,5 A = 31,3 W) und gelten deshalb hier als verbindlich, bis das Handbuch am Gerät geklärt ist. Im 6U-RackBrute ist der Strom zusätzlich auf vier getrennte Kreise aufgeteilt; das Budget gilt dann je Kreis anteilig (Aufteilung UNGEPRÜFT).
 
 **Folgerungen (GESCHÄTZT):**
-- **Tulip passt nicht an diese +5-V-Schienen.** Er braucht ~575 mA (BELEGT), die RackBrute liefert 500 mA, die Routemaster erzeugt +5 V linear aus der +12-V-Schiene mit kleinem Budget. Der Tulip bleibt an seinem eigenen USB-C-Netzteil.
+- **Tulip passt nicht an die RackBrute-+5-V-Schiene.** Er braucht ~575 mA (BELEGT), die RackBrute liefert 500 mA. Der Tulip bleibt an seinem eigenen USB-C-Netzteil.
 - **AMYboards an +12 V aus einer RackBrute:** 1,6 A sind für mehrere Boards voraussichtlich reichlich (Verbrauch je Board UNGEPRÜFT, Q-MECH-9).
 - **Daisy an +5 V der RackBrute:** voraussichtlich möglich, Verbrauch messen (M2); Rückspeisung beim Flashen über USB beachten (Q-MECH-8).
-- **Routemaster:** als DIY-Linearnetzteil mit kleinem Budget nur Reserve, nicht für Tulip oder mehrere Module.
-- **Pragmatische Option für G1:** Das AMYboard ist ein 10-HP-Eurorack-Modul. Ist ein RackBrute-Gehäuse vorhanden, kann es dort direkt eingebaut und versorgt werden; der Tulip steht daneben mit eigenem Netzteil. Das kostet nichts zusätzlich. Bei Rack-Einbau ist die seitliche USB-C-Buchse verdeckt (BELEGT, AMYboard-README); für Flashen/REPL also Zugang vorsehen oder Sketches über TRS-MIDI übertragen.
+- **G1-Plan (empfohlen):** Das AMYboard (10 HP) kommt in eine der beiden **RackBrute 6U** und wird über deren Bus mit +12 V versorgt (10-Pin-Kabel, Kodierung beachten). Der Tulip steht daneben mit eigenem USB-C-Netzteil, Verbindung über Grove-I²C. Kosten: keine. Für die Entwicklung das AMYboard zunächst **nicht festschrauben** oder einen Leerplatz daneben lassen, damit die seitliche USB-C-Buchse (BELEGT verdeckt im Rack) und der SD-Slot erreichbar bleiben; alternativ Sketches über TRS-MIDI übertragen. Einbautiefe prüfen: obere Reihe nur ~53 mm (Q-MECH-11).
+- **Daisy ab M2:** Die Audrey II ist kein Eurorack-Modul; sie steht zunächst neben dem RackBrute. Ob der Daisy aus der RackBrute-+5-V-Schiene versorgt wird, entscheidet sich nach der Strommessung (M2).
+- **Option für G2:** Weil das Netzteilmodul samt Bus herausschraubbar ist, könnte eine der beiden RackBrute-Einheiten als fertige Stromversorgung ins 3D-gedruckte Endgehäuse wandern. Voraussetzung: Abmessungen, Netzanschluss (Netzschalter am Modul, interne oder externe Netzspannungsversorgung UNGEPRÜFT) und sichere Kapselung netzspannungsführender Teile. Erst in G2 bewerten; die zweite RackBrute bliebe als Entwicklungsrack erhalten.
 - **Masse:** Tulip (USB-Netzteil) und AMYboard (Rack-Netzteil) sind über Grove-GND verbunden. Auf Brummschleifen achten (Q-HW-3, Q-MECH-5).

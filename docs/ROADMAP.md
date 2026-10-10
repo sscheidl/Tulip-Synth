@@ -51,7 +51,7 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 
 Schritte (jeweils einzeln prüfbar):
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
-2. **Strom:** AMYboard über eigenes USB-C versorgen; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1).
+2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).
 3. **Lokaler Klang:** Auf dem Tulip AMY-KS-Note spielen (`wave=amy.KS`), ohne AMYboard (D018).
 4. **Verbindung:** Grove-I²C Tulip → AMYboard-Hostport; `amy.override_send = lambda x: i2c.writeto(0x3f, x)`; Testnote hörbar am AMYboard-Ausgang.
 5. **Parametermodell:** `instruments/resonator/params.py` mit 4–6 Parametern (z. B. Damping/Feedback, Brightness/Filter, Attack, Volume).
@@ -59,7 +59,7 @@ Schritte (jeweils einzeln prüfbar):
 7. **MIDI:** Noten von Keyboard (Tulip-USB-Host oder TRS-MIDI) → KS-Stimmen auf AMYboard.
 8. **Preset:** ein JSON-Preset speichern/laden.
 9. **Messung:** maximale stabile KS-Polyphonie auf dem AMYboard; Ergebnis in `docs/research/`.
-10. **Entwicklergehäuse (G1):** Tulip und AMYboard gemeinsam befestigt, Zugang zu USB, BOOT/RST und SD erhalten (HARDWARE.md §6).
+10. **Entwicklergehäuse (G1):** AMYboard in RackBrute 6U (Versorgung +12 V über Bus), Tulip daneben mit eigenem USB-C-Netzteil; Zugang zu USB, BOOT/RST und SD erhalten (HARDWARE.md §6.4).
 11. **Dauertest:** 30 min Spielen/Parameteränderungen ohne Reboot, im Entwicklergehäuse.
 
 **Prüfkriterien (alle erforderlich):**
