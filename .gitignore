@@ -1,0 +1,53 @@
+# --- Firmware-Binaries und Flash-Abbilder: NIEMALS committen (D015) ---
+*.bin
+*.hex
+*.elf
+*.dfu
+*.uf2
+*.map
+*.img
+firmware_backups/
+backups/
+
+# --- Build-Ausgaben ---
+build/
+build-*/
+cmake-build-*/
+out/
+*.o
+*.obj
+*.a
+*.lib
+*.d
+*.su
+
+# ESP-IDF
+sdkconfig.old
+managed_components/
+dependencies.lock
+
+# --- Python / MicroPython ---
+__pycache__/
+*.py[cod]
+*.mpy
+.venv/
+venv/
+
+# --- IDE / Editor ---
+.vs/
+.idea/
+*.code-workspace
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*~
+
+# --- Betriebssystem ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Lokale Secrets / Konfiguration ---
+.env
+*.local
+secrets.*

@@ -1,0 +1,48 @@
+# Referenzen
+
+Versionsstände wurden am 10.10.2026 geprüft (siehe `research/SOURCE_VERIFICATION_2026-10-10.md`). Bei neuen Recherchen Commit-Hash angeben.
+
+## Tulip / AMY
+
+| Quelle | Stand | Lizenz | Relevanz |
+|---|---|---|---|
+| [shorepine/tulipcc](https://github.com/shorepine/tulipcc) | `36e6332` (2026-10-06); AMY-Submodul dort `3e1c573` | MIT | Tulip-Firmware, GUI-API, AMYboard-Doku |
+| ├ [docs/amyboard/README.md](https://github.com/shorepine/tulipcc/blob/main/docs/amyboard/README.md) | 〃 | | Anschlüsse, Strom, I²C `0x3f` |
+| ├ [docs/amyboard/faq.md](https://github.com/shorepine/tulipcc/blob/main/docs/amyboard/faq.md) | 〃 | | CPU-Budget, Verkettung, Speicher |
+| ├ [docs/amyboard/firmware.md](https://github.com/shorepine/tulipcc/blob/main/docs/amyboard/firmware.md) | 〃 | | Firmware-Update/Recovery |
+| ├ [docs/user_c_dsp.md](https://github.com/shorepine/tulipcc/blob/main/docs/user_c_dsp.md) | 〃 | | On-Device-C (`xcc700`) |
+| └ [docs/tulip_api.md](https://github.com/shorepine/tulipcc/blob/main/docs/tulip_api.md) | 〃 | | LVGL/UI, MIDI, I²C |
+| [shorepine/amy](https://github.com/shorepine/amy) | `69a1469` (2026-10-08) | MIT | Synth-Engine, KS, Hooks |
+| ├ [docs/api.md](https://github.com/shorepine/amy/blob/main/docs/api.md) | 〃 | | Wire-Protokoll, Hooks |
+| └ [daisy/](https://github.com/shorepine/amy/tree/main/daisy) | 〃 | | **AMY-Portierung auf Daisy** (Cross-Platform-Referenz) |
+
+## Daisy
+
+| Quelle | Stand | Lizenz | Relevanz |
+|---|---|---|---|
+| [Synthux-Academy/Audrey-II](https://github.com/Synthux-Academy/Audrey-II) | `e5ab799` (2026-08-03); libDaisy `694fc55`, DaisySP `7f67768` | MIT | Stock-Firmware der Audrey II |
+| [electro-smith/DaisyExamples](https://github.com/electro-smith/DaisyExamples) (Masterprompt nennt `daisyaudio/DaisyExamples`) | `259ed82` (2026-06-12); libDaisy `85172e2`, DaisySP `a0494a3` | MIT (Beispiele); MI-Ports siehe Dateiköpfe | `patch/Torus` (Rings), `patch/Nimbus` (Clouds) |
+| [electro-smith/DaisySP](https://github.com/electro-smith/DaisySP) | HEAD `2c72eaf` (2026-09-28) | MIT; Submodul `DaisySP-LGPL` = LGPL | `Source/PhysicalModeling/`: `stringvoice`, `modalvoice`, `resonator`, `KarplusString` |
+| [electro-smith/libDaisy](https://github.com/electro-smith/libDaisy) | – | MIT | Hardwareschicht, USB-MIDI |
+| [daisy.audio](https://daisy.audio/) | – | – | Doku, Web Programmer |
+
+## Mutable Instruments
+
+| Quelle | Stand | Lizenz | Relevanz |
+|---|---|---|---|
+| [pichenettes/eurorack](https://github.com/pichenettes/eurorack) | nicht geprüft | Code MIT (Hardware CC-BY-SA) | Rings, Elements, Clouds, Plaits als Originalquelle |
+
+## Lokal beim Eigentümer (nicht im Git)
+
+Aus dem Inventar `sscheidl/Custom-Firmware@255f3ea` (`inventory/firmware-index.csv`), nur Metadaten:
+- `audrey II/Firmware/audrey-ii-v3.bin` (92 192 B, CRC32 `73655DBD`)
+- `audrey II/Daisy Seed/ES_Daisy_Seed_Rev7.pdf`, `Daisy_Seed_datasheet_v1-1-5.pdf`, `Daisy_Seed_pinout.pdf`
+- `audrey II/Tools/DaisyExamples-master.zip`, `oopsy.zip`, `zadig-2.9.exe`
+
+## Nicht verfügbar in dieser Sitzung
+
+- `claude/Tulip_Synth_Machbarkeit_Roadmap_2026-10-09.md`
+- `Tulip_AMYboard_Projektuebergabe_2026-10-09.md`
+- Daisy-/Audrey-II-Projektübergabe vom 09.10.2026
+
+Siehe `handovers/README.md`.
