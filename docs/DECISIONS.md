@@ -77,6 +77,7 @@ Tulip Synth entsteht als **zusammenhängendes Desktopinstrument**, nicht als los
 - **Endgültiges Gehäuse:** 3D-gedruckt, mit Platz für **zusätzliche DSP-Module**, **Audioanschlüsse** und eine **gemeinsame Stromversorgung**.
 - **Von Anfang an zu berücksichtigen:** mechanische Befestigung (keine Last auf Steckern/Kabeln), sichere Stromversorgung, Wartungszugang (USB, BOOT/RST, SD-Karte, Firmware-Recovery ohne Zerlegen), Erweiterbarkeit (Modulsteckplätze, Kabelwege, Belüftung).
 - **Nicht Bestandteil von M0:** konkrete CAD-Entwicklung und eine eigene Stromversorgungsplatine.
+- **Vorzug Stromversorgung (10.10.2026):** ausgebautes RackBrute-6U-Netzteilmodul mit Bus für die Eurorack-fähigen DSP-Boards; Tulip (kein Eurorack-Format) als eigene Einheit mit eigener 5-V-Versorgung. Vor G2 am Gerät zu verifizieren (HARDWARE.md §6.4).
 
 Anforderungen und offene Punkte: HARDWARE.md, Abschnitt 6 „Gehäuse und Mechanik“. Das Gehäuse ist Teil des Instruments, aber **kein Grund, M1 zu verzögern**: Das Entwicklergehäuse darf improvisiert sein (D014).
 

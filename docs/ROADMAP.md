@@ -127,7 +127,7 @@ Zwei AMYboards (S/PDIF-Kette, eigenes `override_send`-Voice-Splitting), zwei Dai
 
 Erst wenn Modulzahl, Anschlüsse und Stromkonzept aus der Praxis feststehen.
 1. Anforderungen aus G1 auswerten (HARDWARE.md §6).
-2. Stromkonzept festlegen: gemeinsame Einspeisung, Absicherung, Massekonzept; Bewertung „fertige Eurorack-Stromversorgung (+12 V und +5 V) vs. eigene Netzteilplatine“ inkl. 5-V-Rückspeiseschutz beim Flashen (Option HARDWARE.md §6.4).
+2. Stromkonzept bestätigen: Vorzug ist das ausgebaute RackBrute-6U-Netzteilmodul mit Bus für die DSP-Boards, Tulip mit eigener 5-V-Versorgung; Absicherung, Massekonzept, 5-V-Rückspeiseschutz beim Flashen (HARDWARE.md §6.4).
 3. CAD für 3D-Druck, Modulschacht mit Reserveplätzen, Anschlussfeld.
 4. Wärmetest im geschlossenen Gehäuse.
 

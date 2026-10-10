@@ -33,6 +33,7 @@ Versionsstände wurden am 10.10.2026 geprüft (siehe `research/SOURCE_VERIFICATI
 | Quelle | Stand | Relevanz |
 |---|---|---|
 | [4ms Row Power 45 (Perfect Circuit)](https://www.perfectcircuit.com/4ms-row-power-45.html), [Row Power 40](https://www.perfectcircuit.com/4ms-row-power-40.html) | Händlerangabe 10.10.2026 | Eurorack-Netzteil mit +5 V |
+| [ModularGrid: Arturia RackBrute 6UPower](https://modulargrid.net/e/arturia-rackbrute-6upower) | Community-Datenbank, 10.10.2026 | Netzteilmodul 5 HP, 80 mm, 15 V/3 A; Vorzugslösung G2 |
 | [Cre8audio NiftyCase (Scan)](https://www.scan.co.uk/products/cre8audio-niftycase-powered-modular-case-with-midi-to-cv), [zZounds](https://zzounds.com/item--CTANIFTYCASE) | Händlerangabe 10.10.2026 | Kompaktes Eurorack-Gehäuse, Option G2 |
 | [Befaco Trolley Bus (Perfect Circuit)](https://www.perfectcircuit.com/befaco-trolley-bus.html), [Befaco Powskiff](https://www.perfectcircuit.com/befaco-powskiff.html) | Händlerangabe 10.10.2026 | Busplatine + Netzteil mit +5 V |
 
