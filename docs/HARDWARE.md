@@ -183,4 +183,14 @@ Tulip Synth wird ein **zusammenhängendes Desktopinstrument**. In M0 werden nur 
 
 ### 6.4 Gestaltungsoption (GESCHÄTZT, keine Festlegung)
 
-Da das AMYboard Eurorack-Format hat und sich über +12 V aus einem Eurorack-Bus versorgen lässt, wäre für das Endgehäuse ein **interner Modulschacht mit Eurorack-Schienen und Eurorack-Busplatine** eine naheliegende Lösung: weitere AMYboards oder Daisy-basierte Module ließen sich ohne neue Mechanik ergänzen, und eine fertige Eurorack-Stromversorgung ersetzt die eigene Netzteilplatine. Zu prüfen sind Bautiefe, Zugang zu den seitlichen USB-Buchsen und die Versorgung des Tulip (5 V). Entscheidung frühestens nach M4.
+Da das AMYboard Eurorack-Format hat und sich über +12 V aus einem Eurorack-Bus versorgen lässt, wäre für das Endgehäuse ein **interner Modulschacht mit Eurorack-Schienen und Eurorack-Busplatine** eine naheliegende Lösung: weitere AMYboards oder Daisy-basierte Module ließen sich ohne neue Mechanik ergänzen, und eine fertige Eurorack-Stromversorgung ersetzt die eigene Netzteilplatine. Zu prüfen sind Bautiefe und der Zugang zu den seitlichen USB-Buchsen. Entscheidung frühestens nach M4.
+
+**+5-V-Schiene:** Die meisten Eurorack-Netzteile und -Busplatinen führen zusätzlich **+5 V** (am 16-Pin-Busstecker). Damit könnten Tulip (~575 mA) und Daisy aus derselben Stromversorgung gespeist werden, und eine eigene 5-V-Verteilung entfiele. Einschränkungen:
+
+| Punkt | Status |
+|---|---|
+| Nicht jedes Eurorack-Netzteil liefert +5 V; die +5-V-Belastbarkeit ist oft deutlich kleiner als die der ±12-V-Schienen → beim gewählten Netzteil prüfen, Budget mit Reserve (Tulip + Daisy + Zubehör) | GESCHÄTZT, je Netzteil prüfen |
+| Das AMYboard nutzt den **10-Pin**-Stecker und damit nur +12 V; die +5-V-Schiene braucht es nicht | BELEGT (README: „10-pin … +12V“) |
+| **Rückspeisung:** Hängt der Tulip oder der Daisy an der Bus-5-V und gleichzeitig zum Flashen per USB am PC, liegen zwei 5-V-Quellen parallel. Ob Tulip CC und Daisy Seed das per Diode/Power-Path entkoppeln, ist unbekannt → bis zur Klärung Entkopplung (Schottky-/Ideal-Diode) im Einspeisekabel vorsehen oder Bus-5-V beim Flashen trennen | UNGEPRÜFT (Schaltpläne prüfen) |
+| Anschluss Tulip: 5 V über USB-C-Einspeiseadapter oder einen 5-V-Pin der Platine | UNGEPRÜFT (Q-HW-2) |
+| Das AMYboard selbst wählt die höchste anliegende Spannung, USB-C und Bus parallel sind dort vorgesehen | BELEGT (README) |
