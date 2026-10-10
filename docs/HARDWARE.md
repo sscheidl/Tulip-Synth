@@ -194,3 +194,14 @@ Da das AMYboard Eurorack-Format hat und sich über +12 V aus einem Eurorack-Bus 
 | **Rückspeisung:** Hängt der Tulip oder der Daisy an der Bus-5-V und gleichzeitig zum Flashen per USB am PC, liegen zwei 5-V-Quellen parallel. Ob Tulip CC und Daisy Seed das per Diode/Power-Path entkoppeln, ist unbekannt → bis zur Klärung Entkopplung (Schottky-/Ideal-Diode) im Einspeisekabel vorsehen oder Bus-5-V beim Flashen trennen | UNGEPRÜFT (Schaltpläne prüfen) |
 | Anschluss Tulip: 5 V über USB-C-Einspeiseadapter oder einen 5-V-Pin der Platine | UNGEPRÜFT (Q-HW-2) |
 | Das AMYboard selbst wählt die höchste anliegende Spannung, USB-C und Bus parallel sind dort vorgesehen | BELEGT (README) |
+
+**Kandidaten für fertige Stromversorgungen** (Hinweis Eigentümer; Werte aus Händlerangaben, Stand 10.10.2026, Herstellerseiten in dieser Sitzung nicht erreichbar → vor Kauf am Datenblatt prüfen):
+
+| Gerät | +12 V | −12 V | +5 V | Eingang / Lieferumfang | Preis (Händler) | Bemerkung |
+|---|---|---|---|---|---|---|
+| 4ms Row Power 45 | 2,0 A max (1,5 A empf.) | 1,4 A max (1,2 A empf.) | 1,5 A max (1,2 A empf.) | 15–20 V DC Hohlstecker 2,1 mm (Laptop-Netzteil, nicht enthalten); 4 HP Modul | ca. 150–165 € / $ | mehrere Einheiten an einem Netzteil verkettbar; Vorgänger Row Power 40 (+5 V 1,5 A) offenbar eingestellt |
+| Befaco Trolley Bus | 5 A | 2,5 A | 4 A | 135-W-Netzteil enthalten; Busplatine 423 × 80 × 25 mm, 28 Steckplätze, 2× USB-A (aus +5 V) | ca. 250–285 € / $ | als Paket aus Busplatine + Einspeisung; Einzelkauf der Platine unklar |
+| Befaco Powskiff | 1,5 A | 1,3 A | 1 A | – | – | laut Händler eingestellt |
+
+Grobes 5-V-Budget (GESCHÄTZT): Tulip ~0,58 A (BELEGT) + Daisy Seed (UNGEPRÜFT, Messung M2) + Reserve. Mit 1,2 A empfohlener Last ist die Row Power 45 für Tulip + ein Daisy voraussichtlich ausreichend, aber nicht großzügig. Der Trolley Bus hat deutlich mehr Reserve, auch für die USB-A-Ports. Die +12-V-Last je AMYboard ist unbekannt, weil der Regler nicht dokumentiert ist (UNGEPRÜFT, messen).
+Weitere Hersteller (z. B. Doepfer, Tiptop, DIY-Bausätze) sind nicht untersucht. Ein Kauf ist erst für G2 nötig; bis dahin reichen die USB-Netzteile.

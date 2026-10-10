@@ -28,6 +28,13 @@ Versionsstände wurden am 10.10.2026 geprüft (siehe `research/SOURCE_VERIFICATI
 | [electro-smith/libDaisy](https://github.com/electro-smith/libDaisy) | – | MIT | Hardwareschicht, USB-MIDI |
 | [daisy.audio](https://daisy.audio/) | – | – | Doku, Web Programmer |
 
+## Stromversorgung (Gehäuse G2, Kandidaten)
+
+| Quelle | Stand | Relevanz |
+|---|---|---|
+| [4ms Row Power 45 (Perfect Circuit)](https://www.perfectcircuit.com/4ms-row-power-45.html), [Row Power 40](https://www.perfectcircuit.com/4ms-row-power-40.html) | Händlerangabe 10.10.2026 | Eurorack-Netzteil mit +5 V |
+| [Befaco Trolley Bus (Perfect Circuit)](https://www.perfectcircuit.com/befaco-trolley-bus.html), [Befaco Powskiff](https://www.perfectcircuit.com/befaco-powskiff.html) | Händlerangabe 10.10.2026 | Busplatine + Netzteil mit +5 V |
+
 ## Mutable Instruments
 
 | Quelle | Stand | Lizenz | Relevanz |
