@@ -205,3 +205,20 @@ Da das AMYboard Eurorack-Format hat und sich über +12 V aus einem Eurorack-Bus 
 
 Grobes 5-V-Budget (GESCHÄTZT): Tulip ~0,58 A (BELEGT) + Daisy Seed (UNGEPRÜFT, Messung M2) + Reserve. Mit 1,2 A empfohlener Last ist die Row Power 45 für Tulip + ein Daisy voraussichtlich ausreichend, aber nicht großzügig. Der Trolley Bus hat deutlich mehr Reserve, auch für die USB-A-Ports. Die +12-V-Last je AMYboard ist unbekannt, weil der Regler nicht dokumentiert ist (UNGEPRÜFT, messen).
 Weitere Hersteller (z. B. Doepfer, Tiptop, DIY-Bausätze) sind nicht untersucht. Ein Kauf ist erst für G2 nötig; bis dahin reichen die USB-Netzteile.
+
+#### Vorhandene Eurorack-Stromversorgungen (Eigentümer, 10.10.2026)
+
+| Gerät | Anzahl | +12 V | −12 V | +5 V | Quelle / Status |
+|---|---|---|---|---|---|
+| Arturia RackBrute (Netzteilmodul) | 2 | 1600 mA | 800 mA | **500 mA** | Angaben Eigentümer aus Arturia-Handbuch („Richtwerte“, max. 31,3 W) |
+| Frequency Central Routemaster (DIY-Netzteil + Busplatine) | 1 | ca. 500 mA | ca. 500 mA | 7805-Linearregler, Strom nicht dokumentiert | Bauanleitung/Forum: Linearregler 7812/7912/7805 an 12-V-AC-Steckernetzteil; ~500 mA je Schiene bei 1-A-Netzteil, mehr nur mit stärkerem Netzteil und größeren Kühlkörpern; Werte ±12/±15 V per Trimmer einstellbar (GESCHÄTZT, nicht am eigenen Exemplar geprüft) |
+
+**Hinweis zu den RackBrute-Angaben:** Im Handbuchtext stehen zusätzlich 1600 mA auf −12 V und 900 mA auf +5 V. Das widerspricht den Richtwerten. Die Richtwerte ergeben genau die angegebene Maximalleistung (12 V × 1,6 A + 12 V × 0,8 A + 5 V × 0,5 A = 31,3 W) und gelten deshalb hier als verbindlich. Im 6U-RackBrute ist der Strom zusätzlich auf vier getrennte Kreise aufgeteilt; das Budget gilt dann je Kreis anteilig (Aufteilung UNGEPRÜFT).
+
+**Folgerungen (GESCHÄTZT):**
+- **Tulip passt nicht an diese +5-V-Schienen.** Er braucht ~575 mA (BELEGT), die RackBrute liefert 500 mA, die Routemaster erzeugt +5 V linear aus der +12-V-Schiene mit kleinem Budget. Der Tulip bleibt an seinem eigenen USB-C-Netzteil.
+- **AMYboards an +12 V aus einer RackBrute:** 1,6 A sind für mehrere Boards voraussichtlich reichlich (Verbrauch je Board UNGEPRÜFT, Q-MECH-9).
+- **Daisy an +5 V der RackBrute:** voraussichtlich möglich, Verbrauch messen (M2); Rückspeisung beim Flashen über USB beachten (Q-MECH-8).
+- **Routemaster:** als DIY-Linearnetzteil mit kleinem Budget nur Reserve, nicht für Tulip oder mehrere Module.
+- **Pragmatische Option für G1:** Das AMYboard ist ein 10-HP-Eurorack-Modul. Ist ein RackBrute-Gehäuse vorhanden, kann es dort direkt eingebaut und versorgt werden; der Tulip steht daneben mit eigenem Netzteil. Das kostet nichts zusätzlich. Bei Rack-Einbau ist die seitliche USB-C-Buchse verdeckt (BELEGT, AMYboard-README); für Flashen/REPL also Zugang vorsehen oder Sketches über TRS-MIDI übertragen.
+- **Masse:** Tulip (USB-Netzteil) und AMYboard (Rack-Netzteil) sind über Grove-GND verbunden. Auf Brummschleifen achten (Q-HW-3, Q-MECH-5).

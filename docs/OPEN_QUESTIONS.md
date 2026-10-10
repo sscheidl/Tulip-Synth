@@ -34,6 +34,7 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-MECH-3 | Bleiben die seitlichen USB-C- und SD-Zugänge des AMYboards in einem Modulschacht erreichbar? | Mechanik-Mockup | G2 |
 | Q-MECH-4 | Gemeinsame Stromversorgung: Eurorack-Netzteil mit +12 V (AMYboards) **und +5 V** (Tulip/Daisy) aus dem Bus? Reicht die +5-V-Belastbarkeit des gewählten Netzteils? Strombudget aller Module mit Reserve | Stromaufnahme je Modul messen (M1/M2), Netzteil-Datenblatt | G2 |
 | Q-MECH-9 | Stromaufnahme eines AMYboards an +12 V (Bus) und eines Daisy Seed an 5 V | Messung mit USB-/Labor-Strommessgerät (M1/M2) | G2 |
+| Q-MECH-10 | Sind die RackBrutes als Gehäuse (3U/6U) vorhanden oder nur die Netzteilmodule? Ist die Routemaster aufgebaut, mit welchem Netzteil und welchen Kühlkörpern? | Eigentümer | G1 |
 | Q-MECH-8 | Entkoppeln Tulip CC und Daisy Seed eine externe 5-V-Einspeisung von USB-VBUS (Rückspeisung beim Flashen am PC)? | Schaltpläne Tulip (tulipcc `docs/pcbs/`) und Daisy-Seed-Datenblatt | G2 |
 | Q-MECH-5 | Massekonzept und Brummschleifen bei gemeinsamer Versorgung und gemeinsamen Audioausgängen | Messung | G2 |
 | Q-MECH-6 | Wärmeentwicklung im geschlossenen Gehäuse, Belüftungsbedarf | Temperaturmessung im Dauertest | G2 |
