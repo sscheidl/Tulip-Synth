@@ -107,7 +107,7 @@ Im lokalen Archiv des Eigentümers liegt `audrey-ii-v3.bin` (92 192 Bytes, CRC32
 
 Allgemeine Regeln:
 1. Ausgangszustand dokumentieren (Firmware-Version, Datei, Hash, Fotos).
-2. Wiederherstellungs-Image lokal sichern (**nicht** ins Git, D015).
+2. Wiederherstellungs-Image lokal sichern (**nicht** ins Git, D016).
 3. Wiederherstellungsweg **vor** dem ersten Flash einmal trocken durchgehen.
 4. Flashen nur mit ausdrücklicher Freigabe durch den Eigentümer.
 
@@ -133,3 +133,54 @@ In M1 wird **keine** Firmware geflasht. Ein offizielles AMYboard- oder Tulip-Upd
 ```
 
 DIP-Schalter am AMYboard für Line-Pegel: alle 4 auf **OFF** (BELEGT, README).
+
+## 6. Gehäuse und Mechanik (D015)
+
+Tulip Synth wird ein **zusammenhängendes Desktopinstrument**. In M0 werden nur Anforderungen festgehalten. **Kein CAD und keine eigene Netzteilplatine in M0.**
+
+### 6.1 Zwei Stufen
+
+| Stufe | Wann | Zweck | Bauweise |
+|---|---|---|---|
+| **Entwicklergehäuse** | ab M1 | Tulip + AMYboard (+ Daisy ab M2) sicher und gemeinsam betreiben, jederzeit umbaubar | provisorisch, offen: Grundplatte mit Abstandsbolzen, Lochraster-/Multiplex-/Acrylplatte oder einfacher 3D-Druck-Rahmen |
+| **Endgültiges Gehäuse** | frühestens nach M4 (wenn Modulzahl, Anschlüsse und Stromkonzept aus der Praxis bekannt sind) | geschlossenes Instrument | 3D-gedruckt, modular erweiterbar |
+
+### 6.2 Anforderungen (gelten für beide Stufen)
+
+**Mechanische Befestigung**
+- Jede Platine verschraubt (Abstandsbolzen, Befestigungslöcher bzw. Klemmrahmen), nie nur an Kabeln oder Buchsen hängend.
+- Steckverbinder (Grove, USB-C, Klinke) ohne mechanische Last; Zugentlastung für alle Kabel.
+- Touchscreen des Tulip fest gelagert, damit Bedienung keine Kräfte auf die Platine überträgt.
+
+**Sichere Stromversorgung**
+- M1: getrennte 5-V-USB-C-Versorgung für Tulip und AMYboard (Abschnitt 2.1); Mehrport-**Netzteil** zulässig, kein Daten-Hub als Stromquelle.
+- Endgehäuse: **eine** gemeinsame Einspeisung (Netzbuchse mit Schalter), Verteilung an alle Module mit Absicherung je Zweig, Verpolschutz, ausreichende Reserve für Zusatzmodule.
+- Gemeinsames Massekonzept planen (Brummschleifen, Q-HW-3), Audio- und Stromleitungen getrennt führen.
+- Keine Netzspannung (230 V) offen im Entwicklergehäuse; nur geprüfte externe Netzteile.
+
+**Wartungszugang** (ohne Zerlegen erreichbar)
+- USB-Anschlüsse aller Module zum Flashen und für die REPL.
+- BOOT/RST-Tasten von AMYboard (seitlich, BELEGT) und Daisy Seed; beim Tulip die Flash-/Reset-Möglichkeit.
+- MicroSD-Slot des AMYboards (seitlich, BELEGT).
+- Recovery nach HARDWARE.md Abschnitt 4 muss im eingebauten Zustand möglich sein; falls nicht, ist das ein Gehäusefehler.
+
+**Erweiterbarkeit**
+- Reservierte Steckplätze für weitere DSP-Module (D009, langfristig).
+- Kabelwege für I²C/MIDI-Steuerung und für Audio (analog, ggf. S/PDIF).
+- Rückseitiges Anschlussfeld mit Reserve-Ausbrüchen für zusätzliche Audio-Ein-/Ausgänge.
+- Belüftung/Wärmeabfuhr vorsehen (Erwärmung der Module im geschlossenen Gehäuse UNGEPRÜFT).
+
+### 6.3 Bekannte mechanische Eckdaten
+
+| Komponente | Eckdaten | Status |
+|---|---|---|
+| AMYboard | 10 HP Eurorack-Breite, Acryl-Frontplatte über Buchsenmuttern befestigt; Front-Panel als 3MF/DXF/SVG/EPS verfügbar | BELEGT (`docs/amyboard/README.md`, `docs/amyboard/modular.md`) |
+| AMYboard | USB-C und MicroSD seitlich, I²C-Host und 10-Pin-Strom hinten; bei Rack-Einbau ist USB verdeckt (dann Sketches über TRS-MIDI) | BELEGT |
+| AMYboard | Versorgung auch über Eurorack-10-Pin (+12 V) | BELEGT |
+| Tulip CC | Gehäusevorlage für Rev. 4r11 als Laserschnitt-Datei `docs/pcbs/tulip4_r11/case.lbrn2` im tulipcc-Repo | BELEGT (Datei vorhanden, Inhalt nicht geprüft) |
+| Tulip CC | Maße, Befestigungspunkte, Display-Einbau des eigenen Geräts | UNGEPRÜFT |
+| Daisy Seed / Audrey II | Einbau als komplette Audrey oder nur Seed-Modul; Maße und Befestigung | UNGEPRÜFT |
+
+### 6.4 Gestaltungsoption (GESCHÄTZT, keine Festlegung)
+
+Da das AMYboard Eurorack-Format hat und sich über +12 V aus einem Eurorack-Bus versorgen lässt, wäre für das Endgehäuse ein **interner Modulschacht mit Eurorack-Schienen und Eurorack-Busplatine** eine naheliegende Lösung: weitere AMYboards oder Daisy-basierte Module ließen sich ohne neue Mechanik ergänzen, und eine fertige Eurorack-Stromversorgung ersetzt die eigene Netzteilplatine. Zu prüfen sind Bautiefe, Zugang zu den seitlichen USB-Buchsen und die Versorgung des Tulip (5 V). Entscheidung frühestens nach M4.

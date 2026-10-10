@@ -2,6 +2,8 @@
 
 Format: kurz und verbindlich. Änderungen nur durch neue Einträge oder Statuswechsel (`aktiv` → `ersetzt durch Dxxx`), nie durch stilles Umschreiben.
 
+*Nummerierung (10.10.2026):* D001–D015 stammen vom Eigentümer. Die in M0 zusätzlich angelegten Entscheidungen hießen zunächst D015–D017 und wurden auf **D016–D018** verschoben, damit D015 (Gehäuse) der Vorgabe des Eigentümers entspricht.
+
 | ID | Entscheidung | Status | Gilt für |
 |---|---|---|---|
 | D001 | Hardware-only, keine Desktop-Synthesizer | aktiv | alle |
@@ -18,9 +20,10 @@ Format: kurz und verbindlich. Änderungen nur durch neue Einträge oder Statuswe
 | D012 | Keine Firmwareänderung ohne Backup/Recovery | aktiv | alle |
 | D013 | Instrumente nacheinander entwickeln | aktiv | alle |
 | D014 | Keine vorzeitige Framework- oder Infrastrukturentwicklung | aktiv | alle |
-| D015 | Keine Firmware-Binaries im Git | aktiv | alle |
-| D016 | M1 nutzt die Standard-AMYboard-Firmware und AMYs eingebautes Karplus-Strong | aktiv | M1 |
-| D017 | M1-Prototyp zuerst gegen Tulips lokale AMY-Engine, dann Umschaltung auf AMYboard | aktiv | M1 |
+| D015 | Integriertes, modular erweiterbares Hardwaregehäuse | aktiv (Konzept); Entwicklergehäuse ab M1, CAD/Netzteilplatine **nicht** in M0 | ab M1 |
+| D016 | Keine Firmware-Binaries im Git | aktiv | alle |
+| D017 | M1 nutzt die Standard-AMYboard-Firmware und AMYs eingebautes Karplus-Strong | aktiv | M1 |
+| D018 | M1-Prototyp zuerst gegen Tulips lokale AMY-Engine, dann Umschaltung auf AMYboard | aktiv | M1 |
 
 ---
 
@@ -67,11 +70,21 @@ Reihenfolge: Resonator (M1/M4) → Physical Modeling (M5) → Granular (M6). Ein
 ### D014 – Keine vorzeitige Infrastruktur
 Keine Engine-Manager, Scheduler, Routing-Matrizen, Plugin-Systeme, eigenen Protokolle, CI/CD-Pipelines oder Build-Frameworks, solange kein konkreter Bedarf belegt ist.
 
-### D015 – Keine Firmware-Binaries im Git
+### D015 – Integriertes, modular erweiterbares Hardwaregehäuse
+Tulip Synth entsteht als **zusammenhängendes Desktopinstrument**, nicht als lose Sammlung von Platinen.
+
+- **Während der Entwicklung:** Tulip, AMYboard und ggf. Daisy sitzen in einem gemeinsamen, **provisorischen und leicht zugänglichen Entwicklergehäuse** (offene Bauweise, alle Programmier-/Reset-Zugänge erreichbar). Aufbau ab M1.
+- **Endgültiges Gehäuse:** 3D-gedruckt, mit Platz für **zusätzliche DSP-Module**, **Audioanschlüsse** und eine **gemeinsame Stromversorgung**.
+- **Von Anfang an zu berücksichtigen:** mechanische Befestigung (keine Last auf Steckern/Kabeln), sichere Stromversorgung, Wartungszugang (USB, BOOT/RST, SD-Karte, Firmware-Recovery ohne Zerlegen), Erweiterbarkeit (Modulsteckplätze, Kabelwege, Belüftung).
+- **Nicht Bestandteil von M0:** konkrete CAD-Entwicklung und eine eigene Stromversorgungsplatine.
+
+Anforderungen und offene Punkte: HARDWARE.md, Abschnitt 6 „Gehäuse und Mechanik“. Das Gehäuse ist Teil des Instruments, aber **kein Grund, M1 zu verzögern**: Das Entwicklergehäuse darf improvisiert sein (D014).
+
+### D016 – Keine Firmware-Binaries im Git
 Kompilierte Images, Herstellerfirmware, Flash-Dumps und Backups werden nicht committet (auch nicht via LFS). `.gitignore` schließt `*.bin`, `*.hex`, `*.elf`, `*.dfu`, `*.uf2` aus. Übernommen aus der Policy von `sscheidl/Custom-Firmware`. Eine spätere Veröffentlichung eigener, getesteter Builds erfolgt nur als separates Release-Artefakt nach ausdrücklicher Freigabe.
 
-### D016 – M1 ohne eigene AMYboard-Firmware
+### D017 – M1 ohne eigene AMYboard-Firmware
 AMY bietet Karplus-Strong als Oszillator-Wellenform `KS` (BELEGT). M1 steuert ausschließlich die vorhandene AMYboard-Firmware über AMY-Wire. Eigene native Firmware (AMY-Hooks) frühestens ab M3. `xcc700`-On-Device-C wird nur für kleine Experimente genutzt (keine floats/structs/`for`, „very alpha“).
 
-### D017 – Erst lokal auf dem Tulip, dann AMYboard
+### D018 – Erst lokal auf dem Tulip, dann AMYboard
 Tulip CC hat eine eigene AMY-Engine mit Karplus-Strong (BELEGT, tulipcc README). GUI und Parametermodell werden zuerst gegen die lokale Engine entwickelt. Die Umschaltung auf das AMYboard erfolgt über `amy.override_send` (I²C). So lassen sich GUI-Fehler und Verbindungsfehler getrennt finden. Das Erfolgskriterium von M1 bleibt der Betrieb **mit** AMYboard.

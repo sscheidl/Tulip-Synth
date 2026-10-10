@@ -12,6 +12,8 @@ Versionsstände wurden am 10.10.2026 geprüft (siehe `research/SOURCE_VERIFICATI
 | ├ [docs/amyboard/firmware.md](https://github.com/shorepine/tulipcc/blob/main/docs/amyboard/firmware.md) | 〃 | | Firmware-Update/Recovery |
 | ├ [docs/user_c_dsp.md](https://github.com/shorepine/tulipcc/blob/main/docs/user_c_dsp.md) | 〃 | | On-Device-C (`xcc700`) |
 | └ [docs/tulip_api.md](https://github.com/shorepine/tulipcc/blob/main/docs/tulip_api.md) | 〃 | | LVGL/UI, MIDI, I²C |
+| ├ [docs/amyboard/modular.md](https://github.com/shorepine/tulipcc/blob/main/docs/amyboard/modular.md) + `docs/pcbs/amyboard/amyboard_front_panel.{3mf,dxf,svg,eps}` | 〃 | | Frontplatte 10 HP, Vorlage für Gehäuse (D015) |
+| └ `docs/pcbs/tulip4_r11/case.lbrn2` | 〃 | | Tulip-Gehäusevorlage (Laserschnitt), Inhalt ungeprüft |
 | [shorepine/amy](https://github.com/shorepine/amy) | `69a1469` (2026-10-08) | MIT | Synth-Engine, KS, Hooks |
 | ├ [docs/api.md](https://github.com/shorepine/amy/blob/main/docs/api.md) | 〃 | | Wire-Protokoll, Hooks |
 | └ [daisy/](https://github.com/shorepine/amy/tree/main/daisy) | 〃 | | **AMY-Portierung auf Daisy** (Cross-Platform-Referenz) |

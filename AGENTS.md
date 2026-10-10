@@ -35,12 +35,13 @@ Funktionierende, spielbare Instrumente haben Vorrang vor theoretisch perfekter E
 
 ## Zusätzliche Repository-Regeln
 
-- **Keine Firmware-Binaries** (`.bin`, `.hex`, `.elf`, `.dfu`, `.uf2`, Flash-Dumps, Backups) committen, auch nicht über LFS. Backups liegen lokal beim Eigentümer (D015).
+- **Keine Firmware-Binaries** (`.bin`, `.hex`, `.elf`, `.dfu`, `.uf2`, Flash-Dumps, Backups) committen, auch nicht über LFS. Backups liegen lokal beim Eigentümer (D016).
 - **Keine Secrets** (Tokens, WLAN-Passwörter) committen.
 - Originaldokumente in `docs/handovers/` werden **nie verändert**. Korrekturen kommen in neue Dateien.
 - Aussagen über Hardware kennzeichnen: **BELEGT** (Quelle nennen) / **GESCHÄTZT** / **UNGEPRÜFT**.
 - Keine Fakten erfinden. Unbekanntes in `docs/OPEN_QUESTIONS.md` eintragen.
 - Andere Repositories (insbesondere `sscheidl/Custom-Firmware`) nicht verändern.
+- Gehäuse und Mechanik (D015): Einbauten dürfen Recovery-Zugänge (USB, BOOT/RST, SD) nie verbauen. CAD und eigene Netzteilplatinen nur mit ausdrücklichem Auftrag.
 
 ## Definition of Done für einen Arbeitsschritt
 

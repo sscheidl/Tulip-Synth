@@ -25,6 +25,18 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-HW-6 | Lässt sich die Original-Firmware per DFU vom Seed auslesen? | Test mit `dfu-util -U` (nur lesend) nach Freigabe | M2 |
 | Q-HW-7 | Erkennt der Tulip-USB-Host ein Daisy-USB-MIDI-Gerät? Oder Verbindung über TRS-MIDI/UART? | Test | M2 |
 
+## Gehäuse und Mechanik (D015)
+
+| ID | Frage | Klärung | Für |
+|---|---|---|---|
+| Q-MECH-1 | Maße und Befestigungspunkte von Tulip CC, AMYboard und Audrey II/Daisy Seed (eigene Geräte) | Ausmessen, Fotos; tulipcc `case.lbrn2` und AMYboard-Frontplatten-DXF auswerten | G1 |
+| Q-MECH-2 | Audrey II komplett einbauen oder nur den Daisy Seed (mit eigener Trägerplatine/Bedienelementen)? | Entscheidung nach M2 | G1/G2 |
+| Q-MECH-3 | Bleiben die seitlichen USB-C- und SD-Zugänge des AMYboards in einem Modulschacht erreichbar? | Mechanik-Mockup | G2 |
+| Q-MECH-4 | Gemeinsame Stromversorgung: Eurorack-Netzteil + Bus (+12 V für AMYboards) plus 5-V-Zweig für Tulip/Daisy, oder 5-V-Verteilung? Strombudget aller Module mit Reserve | Messung der Stromaufnahme je Modul (M1/M2) | G2 |
+| Q-MECH-5 | Massekonzept und Brummschleifen bei gemeinsamer Versorgung und gemeinsamen Audioausgängen | Messung | G2 |
+| Q-MECH-6 | Wärmeentwicklung im geschlossenen Gehäuse, Belüftungsbedarf | Temperaturmessung im Dauertest | G2 |
+| Q-MECH-7 | Welche Audioanschlüsse soll das Endgerät haben (Stereo-Out, Kopfhörer, Audio-In, Einzelausgänge je Modul, S/PDIF)? | Entscheidung Eigentümer nach M4 | G2 |
+
 ## Software / DSP
 
 | ID | Frage | Klärung | Für |

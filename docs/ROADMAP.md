@@ -6,6 +6,9 @@ Kleine, überprüfbare Meilensteine. Jeder Meilenstein endet mit einem **auf Har
 M0 ─► M1 ─► M2 ─► M3 ─► M4 ─► M5 ─► M6 ─ ─ ► M7 (optional)
 Doku  AMY   Daisy  C++   Reso  PM    Gran    Multi-DSP
       ▲ erste wichtige Fertigstellungsgrenze
+
+Gehäuse (D015), parallel:
+      G1 Entwicklergehäuse (M1, Daisy-Platz ab M2) ───► G2 Endgehäuse (nach M4)
 ```
 
 | M | Titel | Abhängig von | Status |
@@ -18,6 +21,8 @@ Doku  AMY   Daisy  C++   Reso  PM    Gran    Multi-DSP
 | M5 | Physical Modeling | M4 | offen |
 | M6 | Granular Synth | M3 (Profile), Speichermessungen | offen |
 | M7 | Multi-DSP-Experimente (optional) | M4 + Neubewertung | optional |
+| G1 | Entwicklergehäuse (provisorisch) | M1-Schritt 2 | offen, Teil von M1 |
+| G2 | Endgültiges 3D-gedrucktes Gehäuse | M4, G1-Erfahrungen | offen |
 
 ---
 
@@ -47,14 +52,15 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 Schritte (jeweils einzeln prüfbar):
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C versorgen; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1).
-3. **Lokaler Klang:** Auf dem Tulip AMY-KS-Note spielen (`wave=amy.KS`), ohne AMYboard (D017).
+3. **Lokaler Klang:** Auf dem Tulip AMY-KS-Note spielen (`wave=amy.KS`), ohne AMYboard (D018).
 4. **Verbindung:** Grove-I²C Tulip → AMYboard-Hostport; `amy.override_send = lambda x: i2c.writeto(0x3f, x)`; Testnote hörbar am AMYboard-Ausgang.
 5. **Parametermodell:** `instruments/resonator/params.py` mit 4–6 Parametern (z. B. Damping/Feedback, Brightness/Filter, Attack, Volume).
 6. **GUI:** `UIScreen` mit `UISlider`s für diese Parameter (LVGL-Wrapper aus tulipcc).
 7. **MIDI:** Noten von Keyboard (Tulip-USB-Host oder TRS-MIDI) → KS-Stimmen auf AMYboard.
 8. **Preset:** ein JSON-Preset speichern/laden.
 9. **Messung:** maximale stabile KS-Polyphonie auf dem AMYboard; Ergebnis in `docs/research/`.
-10. **Dauertest:** 30 min Spielen/Parameteränderungen ohne Reboot.
+10. **Entwicklergehäuse (G1):** Tulip und AMYboard gemeinsam befestigt, Zugang zu USB, BOOT/RST und SD erhalten (HARDWARE.md §6).
+11. **Dauertest:** 30 min Spielen/Parameteränderungen ohne Reboot, im Entwicklergehäuse.
 
 **Prüfkriterien (alle erforderlich):**
 - [ ] Noten vom MIDI-Keyboard erklingen über das AMYboard.
@@ -62,8 +68,9 @@ Schritte (jeweils einzeln prüfbar):
 - [ ] Ein Preset lässt sich speichern und nach Neustart laden.
 - [ ] 30 min stabiler Betrieb ohne Reboot von Tulip oder AMYboard.
 - [ ] Gemessene KS-Polyphonie dokumentiert.
+- [ ] Tulip und AMYboard sind im Entwicklergehäuse verschraubt; Kabel zugentlastet; Recovery-Zugänge ohne Zerlegen erreichbar.
 
-**Nicht in M1:** eigene Firmware, eigene DSP-Engine, Daisy, mehrere Presets-Bänke, Visualisierung.
+**Nicht in M1:** eigene Firmware, eigene DSP-Engine, Daisy, mehrere Presets-Bänke, Visualisierung, CAD-Endgehäuse, eigene Netzteilplatine.
 
 **Risiken:** Stromversorgung/Boot-Loops (Gegenmaßnahme: getrennte Versorgung) · I²C-Stabilität bei hoher Parameterrate (Rate begrenzen, Änderungen bündeln) · AMY-KS klingt zu einfach (akzeptiert, Ausbau in M4) · GUI-Rendering stört Audio auf dem Tulip (Audio läuft auf dem AMYboard, Risiko gering).
 
@@ -74,6 +81,7 @@ Schritte (jeweils einzeln prüfbar):
 1. Audrey-Hardware, Seed-Revision und laufende Firmware dokumentieren.
 2. Original-Firmware sichern (Auslesen per DFU, sonst Archiv-`.bin` + Hash) – **D012**.
 3. Recovery-Verfahren einmal trocken durchspielen.
+3a. Daisy/Audrey mechanisch ins Entwicklergehäuse aufnehmen (G1 erweitern), Recovery-Zugang erhalten.
 4. Daisy-Toolchain auf dem Windows-Host prüfen (arm-none-eabi-gcc, make, dfu-util).
 5. Minimale eigene Firmware: USB-MIDI (libDaisy `MidiUsbHandler`), Note-On/Off, ein einfacher Klang (z. B. DaisySP `StringVoice`), 2–3 Parameter über CC/NRPN.
 6. Flash-Budget prüfen: passt in 128 KB oder Bootloader nötig?
@@ -115,6 +123,18 @@ Zwei AMYboards (S/PDIF-Kette, eigenes `override_send`-Voice-Splitting), zwei Dai
 
 ---
 
+## G2 – Endgültiges Gehäuse (nach M4)
+
+Erst wenn Modulzahl, Anschlüsse und Stromkonzept aus der Praxis feststehen.
+1. Anforderungen aus G1 auswerten (HARDWARE.md §6).
+2. Stromkonzept festlegen: gemeinsame Einspeisung, Absicherung, Massekonzept; Bewertung „fertige Eurorack-Stromversorgung vs. eigene Netzteilplatine“ (Option HARDWARE.md §6.4).
+3. CAD für 3D-Druck, Modulschacht mit Reserveplätzen, Anschlussfeld.
+4. Wärmetest im geschlossenen Gehäuse.
+
+**Prüfkriterien:** alle Module sicher befestigt und versorgt · Recovery aller Module ohne Zerlegen möglich · mindestens ein freier Modulplatz · 30-min-Dauertest im geschlossenen Gehäuse.
+
+---
+
 ## Projektweite Risiken
 
 | Risiko | Wirkung | Gegenmaßnahme |
@@ -123,4 +143,6 @@ Zwei AMYboards (S/PDIF-Kette, eigenes `override_send`-Voice-Splitting), zwei Dai
 | Unbekannter Aufwand eigener AMYboard-Firmware | M3 verzögert | Ausstiegsregel D006; Daisy trägt Extended-Funktionen |
 | Firmware-Schaden Audrey | Gerät temporär unbrauchbar | D012, Recovery vorher testen |
 | Flash-Grenze Daisy (128 KB) | Engine passt nicht | Bootloader/QSPI-Weg früh klären (M2) |
+| Gehäuse wird zu früh perfektioniert | M1 verzögert | G1 bewusst provisorisch; CAD erst G2 |
+| Gemeinsame Stromversorgung/Masse im Gehäuse | Reboots, Brummen, Schäden | getrennte geprüfte Netzteile bis G2; Massekonzept vor G2 |
 | Fremdlizenzen (MIT/LGPL) | Weitergabe eingeschränkt | Herkunft dokumentieren, DaisySP-LGPL bewusst wählen |

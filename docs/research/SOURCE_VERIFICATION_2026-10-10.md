@@ -47,7 +47,7 @@
 
 ### Custom-Firmware `255f3ea` (nur gelesen, nicht verändert)
 - `inventory/firmware-index.csv`: Audrey-Archiv mit `audrey-ii-v3.bin` (92 192 B, CRC32 `73655DBD`), Daisy-Seed-Datenblätter (u. a. Rev7), Tools.
-- `README.md`/`docs/repository-policy.md`: Policy „keine Firmware-Binaries im Git“ → übernommen als D015.
+- `README.md`/`docs/repository-policy.md`: Policy „keine Firmware-Binaries im Git“ → übernommen als D016.
 
 ## Nicht geprüft
 

@@ -13,6 +13,8 @@ Grundsatz: **Erweiterbarkeit ermöglichen, aber nicht vorab implementieren.** Di
 **Version 1 ist genau: 1 Instrument → 1 Engine → 1 Modul.**
 Die Begriffe werden nur in Dokumentation, Namensgebung und Preset-Format verwendet. Es gibt dafür keine Klassen, keinen Manager und keine Registry.
 
+**Physische Ebene:** Module sind auch mechanisch Einheiten im gemeinsamen Gehäuse (D015). Ein späteres zusätzliches Modul braucht einen Steckplatz, Strom, eine Steuerverbindung und einen Audioweg. Diese vier Dinge sind beim Gehäuse einzuplanen, nicht in der Software.
+
 ## 2. Form von Version 1 (M1)
 
 ```text
@@ -37,7 +39,7 @@ Die Begriffe werden nur in Dokumentation, Namensgebung und Preset-Format verwend
 Wesentliche Eigenschaften:
 
 - **Steuerweg und Audioweg sind getrennt.** Tulip transportiert nur Steuerdaten, nie Audio.
-- In M1 läuft **keine eigene Firmware** auf dem AMYboard (D016). AMY bringt Karplus-Strong als Wellenform `KS` bereits mit (BELEGT, `amy/src/oscillators.c` `render_ks`, `ks_note_on`).
+- In M1 läuft **keine eigene Firmware** auf dem AMYboard (D017). AMY bringt Karplus-Strong als Wellenform `KS` bereits mit (BELEGT, `amy/src/oscillators.c` `render_ks`, `ks_note_on`).
 - Stromversorgung des AMYboards in M1 **über eigenes USB-C** (siehe HARDWARE.md).
 
 ## 3. Schichten und Verantwortlichkeiten

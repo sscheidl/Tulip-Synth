@@ -57,7 +57,7 @@ Der Masterprompt (6.3) nennt **neun** Themen. Befund 10 ist ohne den Originalber
 | 5 | Audrey-Firmware-Dateinamen uneindeutig | **BELEGT** | README verlinkt `audrey-ii-v3.bin` **und** `audrey-ii.bin`; Archiv hat `audrey-ii-v3.bin` (92 192 B, CRC32 `73655DBD`) | `HARDWARE.md` §3.2, Q-HW-5 |
 | 6 | Flash-/Bootloader-Hinweise fehlen | **BELEGT** | STM32H750: 128 KB interner Flash; Stock passt hinein; größere Firmware (AMY-Daisy) braucht `BOOT_SRAM` + Daisy-Bootloader | `HARDWARE.md` §3.3 |
 | 7 | Nutzbare Audrey-Bedienelemente nicht beschrieben | **BELEGT** | Tabelle mit 11 Potis + Schalter inkl. Pins | `HARDWARE.md` §3.1 |
-| 8 | Unklare Aussagen zu eigenen C-DSP-Erweiterungen | **BELEGT** | Zwei Wege trennen: `xcc700` on-device (stark eingeschränkt, Fixed-Point) vs. native Firmware mit AMY-Hooks (voll, aber eigener Build) | `HARDWARE.md` §2, D016 |
+| 8 | Unklare Aussagen zu eigenen C-DSP-Erweiterungen | **BELEGT** | Zwei Wege trennen: `xcc700` on-device (stark eingeschränkt, Fixed-Point) vs. native Firmware mit AMY-Hooks (voll, aber eigener Build) | `HARDWARE.md` §2, D017 |
 | 9 | Quellenverweise auf DSP-Portierungen fehlen | **BELEGT** | AMY-Daisy, Torus, Nimbus, DaisySP PhysicalModeling mit Commit-Ständen | `REFERENCES.md` |
 | 10 | *unbekannt* | **NICHT VERFÜGBAR** | Originalbericht Abschnitt 5 lesen | Q-DOC-3 |
 
@@ -65,8 +65,8 @@ Der Masterprompt (6.3) nennt **neun** Themen. Befund 10 ist ohne den Originalber
 
 | # | Befund | Status | Bedeutung |
 |---|---|---|---|
-| Z1 | AMY bietet Karplus-Strong als eingebaute Wellenform `KS` (Abklingen über `feedback`) | BELEGT | M1 braucht keine eigene Engine (D016) |
-| Z2 | Tulip CC hat eine eigene lokale AMY-Engine mit KS | BELEGT | GUI kann ohne AMYboard vorentwickelt werden (D017) |
+| Z1 | AMY bietet Karplus-Strong als eingebaute Wellenform `KS` (Abklingen über `feedback`) | BELEGT | M1 braucht keine eigene Engine (D017) |
+| Z2 | Tulip CC hat eine eigene lokale AMY-Engine mit KS | BELEGT | GUI kann ohne AMYboard vorentwickelt werden (D018) |
 | Z3 | AMYboard: ~3 MB SPIRAM frei für Samples (~30 s mono) | BELEGT | Obergrenze für Granular-Base-Profil (M6) |
 | Z4 | AMYboard-CPU-Richtwerte: Juno ~12 %, DX7 ~8 %, PCM ~2 % pro Stimme | BELEGT | Erwartung für Polyphonie; KS-Kosten selbst ungemessen |
 | Z5 | AMY-Standard: 44,1 kHz / 256 Samples; auf Daisy 48 kHz / 128 | BELEGT | Latenz und Profilunterschiede |
