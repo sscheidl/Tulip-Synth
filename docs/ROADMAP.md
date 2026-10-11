@@ -72,7 +72,7 @@ Schritte (jeweils einzeln prüfbar):
 
 **Nicht in M1:** eigene Firmware, eigene DSP-Engine, Daisy, mehrere Presets-Bänke, Visualisierung, CAD-Endgehäuse, eigene Netzteilplatine.
 
-**SD-Karten-Recherche (11.10.2026):** [Kartenauswahl und Speichergrenzen](research/SD_CARDS_2026-10-11.md) dokumentiert; Quellen geprüft, eigene Karten/Hardware UNGEPRÜFT. Kein M1-Blocker für Karplus-Strong und keine Umsetzung späterer Sample-/Granular-Meilensteine.
+**SD-Karten-Recherche (11.10.2026):** [Kartenauswahl, Speichergrenzen und konkrete 32-GB-U3/V30-Angebote](research/SD_CARDS_2026-10-11.md) dokumentiert; Quellen geprüft, eigene Karten/Hardware UNGEPRÜFT. Kein M1-Blocker für Karplus-Strong und keine Umsetzung späterer Sample-/Granular-Meilensteine.
 
 **Risiken:** Stromversorgung/Boot-Loops (Gegenmaßnahme: getrennte Versorgung) · I²C-Stabilität bei hoher Parameterrate (Rate begrenzen, Änderungen bündeln) · AMY-KS klingt zu einfach (akzeptiert, Ausbau in M4) · GUI-Rendering stört Audio auf dem Tulip (Audio läuft auf dem AMYboard, Risiko gering).
 
