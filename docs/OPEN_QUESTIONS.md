@@ -24,6 +24,8 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-HW-5 | Welche Audrey-Firmware läuft (`audrey-ii-v3.bin` oder `audrey-ii.bin`)? Unterschied? | Hash nach Auslesen vergleichen | M2 |
 | Q-HW-6 | Lässt sich die Original-Firmware per DFU vom Seed auslesen? | Test mit `dfu-util -U` (nur lesend) nach Freigabe | M2 |
 | Q-HW-7 | Erkennt der Tulip-USB-Host ein Daisy-USB-MIDI-Gerät? Oder Verbindung über TRS-MIDI/UART? | Test | M2 |
+| Q-HW-8 | Welche FAT32-SD-Karte funktioniert am eigenen AMYboard; besitzt die eigene Tulip-Revision eine SD-Erweiterung? | Revision/Firmware/Kartenmodell notieren, Mount- und Dateilesetest; siehe research/SD_CARDS_2026-10-11.md | M1 bei SD-Bedarf, kein KS-Blocker |
+| Q-HW-9 | Ist an der Audrey II ein SD-Sockel vorhanden/nachrüstbar und welche SDMMC-Pins sind zugänglich? Welche längsten Lesepausen entstehen? | Hardware prüfen; später mit passender Firmware messen, keine Stock-Unterstützung voraussetzen | bei Daisy-SD-Bedarf, spätestens M6 |
 
 ## Gehäuse und Mechanik (D015)
 
