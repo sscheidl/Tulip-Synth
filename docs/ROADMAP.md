@@ -36,12 +36,12 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 - [x] Claude-Ergebnisse konsolidiert, soweit verfügbar (`CLAUDE_REVIEW_2026-10-09.md`)
 - [x] Kernbefunde an Primärquellen verifiziert (`research/SOURCE_VERIFICATION_2026-10-10.md`)
 - [x] Architekturentscheidungen (`DECISIONS.md`)
-- [x] Werkzeuginventur (`DEV_ENVIRONMENT.md`); Inventur des Windows-Hosts steht noch aus
+- [x] Werkzeuginventur (`DEV_ENVIRONMENT.md`); Windows-Host am 11.10.2026 geprüft (Versionen/Pfade, keine Hardwaretests)
 - [x] Roadmap
 
 **Offene Reste aus M0** (blockieren M1 nicht):
 - Originaldokumente (Übergaben vom 09.10., Claude-Bericht) ins Repo legen → `docs/handovers/`
-- Windows-Werkzeuginventur ausführen (`DEV_ENVIRONMENT.md`, Abschnitt 3)
+- Windows-Werkzeuginventur erledigt (11.10.2026, `DEV_ENVIRONMENT.md`, Abschnitt 3); USB-REPL/Dateitransfer am Gerät in M1 noch UNGEPRÜFT
 
 ---
 

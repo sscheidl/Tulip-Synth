@@ -2,7 +2,7 @@
 
 ## 1. Wichtiger Hinweis zum Ort der Inventur
 
-Der Bootstrap (M0) lief am 10.10.2026 in einer **Cloud-Sitzung (Linux-Container)**, nicht auf dem Windows-Host des Eigentümers. Die Werkzeuge des Windows-Hosts konnten deshalb **nicht** erfasst werden. Abschnitt 2 beschreibt den Container (nur für Doku-/Analysearbeit relevant), Abschnitt 3 enthält das Prüfskript für den Windows-Host.
+Der Bootstrap (M0) lief am 10.10.2026 in einer **Cloud-Sitzung (Linux-Container)**, nicht auf dem Windows-Host des Eigentümers. Die Werkzeuge des Windows-Hosts konnten damals **nicht** erfasst werden. Abschnitt 2 beschreibt den Container (nur für Doku-/Analysearbeit relevant), Abschnitt 3 dokumentiert die lokale Windows-Inventur vom 11.10.2026 und das Prüfskript.
 
 Es wurde nichts installiert.
 
@@ -25,7 +25,54 @@ Es wurde nichts installiert.
 
 Folgerung: Die Cloud eignet sich für Dokumentation, Code-Analyse, Host-Unit-Tests von `dsp/common` und Tulip-Python-Code-Reviews, **nicht** für Firmware-Builds oder Flashen.
 
-## 3. Windows-Host (ausstehend)
+## 3. Windows-Host (geprüft am 11.10.2026)
+
+**BELEGT am Windows-Host:** Nur lesende Inventur (PATH, Versionsaufrufe,
+Windows-Uninstall-Registry, Visual-Studio-`vswhere`, Dateipfade und `pip show`).
+Es wurde nichts installiert und keine Firmware geflasht. Builds und Zugriff auf
+Tulip/AMYboard/Daisy sind **UNGEPRÜFT**; Firmwarestände wurden nicht erfasst.
+
+| Werkzeug | Befund | Bedarf |
+|---|---|---|
+| Git | 2.53.0.windows.1, `C:\Program Files\Git\cmd\git.exe` | vorhanden, M1 |
+| GitHub CLI | 2.93.0 laut Registry, nicht im aktuellen PATH | optional |
+| Python | 3.12.10, `C:\Users\ssche\AppData\Local\Programs\Python\Python312\python.exe`; `py` ebenfalls erreichbar | vorhanden, M1 |
+| CMake | 4.4.2, `C:\Program Files\CMake\bin\cmake.exe` | vorhanden; für M1 nicht erforderlich |
+| C/C++ (MSVC) | Build Tools 2022 und 2026; `cl.exe` 14.44.35207 bzw. 14.51.36231 vorhanden; `vswhere` bestätigt x86/x64-C++-Komponente | Windows-Compiler vorhanden; Developer Shell erforderlich; Host-Tests ab M3 |
+| GNU Make / MinGW Make | nicht im aktuellen PATH | für M1 nicht erforderlich; Daisy ab M2 |
+| ARM GCC/G++, dfu-util, OpenOCD | nicht im aktuellen PATH; kein Daisy-Eintrag in geprüfter Installationsregistry und kein Verzeichnis an drei üblichen DaisyToolchain-Pfaden | Daisy ab M2; OpenOCD optional |
+| Daisy-Installer | `D:\Backup\Backup_System\Music Production\Audio Dev\Daisy Seed\tools\DaisyToolchain-1.1.0-win64.exe` vorhanden | Datei ist kein Installationsnachweis; jetzt nicht ausführen |
+| mpremote / pyserial | `python -m pip show mpremote pyserial`: beide fehlen in Python 3.12 | mögliche Ergänzung für USB-REPL/Dateitransfer in M1; Gerätekompatibilität UNGEPRÜFT |
+| Arduino IDE | `C:\Program Files\Arduino IDE` leer; Arduino15 und weitere Benutzerdaten vorhanden; kein passender Uninstall-Eintrag | nur Reste nachgewiesen, lauffähige IDE nicht bestätigt; für Projekt nicht erforderlich |
+| Edge | `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` vorhanden | Browser vorhanden; WebSerial am Gerät UNGEPRÜFT |
+| ESP-IDF / esptool | nicht im aktuellen PATH | eigene AMYboard-Firmware frühestens M3 |
+
+**Empfehlung für M1:** Git und vorhandenes Python nutzen, zunächst den Zugriff
+auf Tulip über Browser/REPL prüfen. Falls der gewählte USB-Dateitransfer es
+erfordert, `mpremote` (mit `pyserial` als Abhängigkeit) ergänzen. Kein zusätzlicher
+C++-Compiler, keine Arduino IDE und keine Daisy-Toolchain für M1 erforderlich.
+CMake ersetzt weder GNU Make noch einen Compiler; MSVC erzeugt Windows-Code
+und ersetzt den ARM-Cross-Compiler für Daisy nicht.
+
+### Was das Daisy-Paket mitbringt
+
+**BELEGT laut Herstellerquellen:** Das Toolchain-Repository führt ARM GNU
+Toolchain (C/C++ plus zugehörige Binärwerkzeuge), GNU Make, `dfu-util`, OpenOCD
+und `clang-format`. Git und Python werden in der Windows-Anleitung separat
+behandelt. Das veröffentlichte `windows/install.bat` ergänzt den Benutzer-PATH
+um den `bin`-Ordner. libDaisy, DaisySP und Projektquellen werden separat benötigt.
+
+Die Repository-README nennt Make 4.3, OpenOCD 0.11.0, dfu-util 0.10,
+clang-format 10.0.0 und ARM 10-2020-q4-major. **UNGEPRÜFT:** exakter Inhalt und
+Komponentenversionen der lokalen Installerdatei 1.1.0; sie wurde nicht ausgeführt
+oder entpackt. Das Paket wird für den vorgesehenen C++/libDaisy-Weg ab M2
+benötigt, sofern seine Werkzeuge nicht anderweitig passend bereitgestellt werden.
+
+Quellen (abgerufen 11.10.2026):
+- [Windows Toolchain Install](https://docs.daisy.audio/tutorials/toolchain-windows/)
+- [Understanding the Toolchain](https://docs.daisy.audio/tutorials/Understanding-the-Toolchain/)
+- [DaisyToolchain README](https://github.com/electro-smith/DaisyToolchain)
+- [Windows PATH-Skript](https://github.com/electro-smith/DaisyToolchain/blob/main/windows/install.bat)
 
 Benötigt je Meilenstein:
 
@@ -57,7 +104,7 @@ if ($env:IDF_PATH) { "IDF_PATH = $env:IDF_PATH" } else { "IDF_PATH nicht gesetzt
 Get-ChildItem "$env:USERPROFILE\esp", "C:\Espressif" -Directory -ErrorAction SilentlyContinue | Select-Object FullName
 ```
 
-Ergebnis bitte hier als Tabelle eintragen (Datum, Werkzeug, Version, Pfad).
+Die Ergebnisse der Inventur stehen oben; das Skript bleibt für spätere Prüfungen.
 
 ## 4. Lokale Arbeitskopie
 
