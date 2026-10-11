@@ -103,6 +103,10 @@ Im lokalen Archiv des Eigentümers liegt `audrey-ii-v3.bin` (92 192 Bytes, CRC32
 - DaisyExamples `patch/Torus` baut mit `-Os` (Größenoptimierung), ein Hinweis auf knappen Flash (GESCHÄTZT).
 - Für M2: erst klären, ob die eigene USB-MIDI-Firmware in 128 KB passt oder den Bootloader braucht.
 
+### 3.4 Seed3 Desktop Dev Kit + älterer Seed 1.2 (Forschungsoption, UNGEPRÜFT)
+
+Ergänzung vom 11.10.2026: mögliche rein digitale DSP-Erweiterung mit SAI2/I²S, analoger Audio-I/O nur über den Seed3-Codec. **Kein getesteter Aufbau.** D26/D27/D28 sind lediglich Pin-Kandidaten; die diskutierte MUX-/Schalter-Belegung, Pin-AF beider Seeds und revisionsrichtige KiCad-Netze müssen geprüft werden. Alternative Pins, Umlegen von Bedienelementen und Umlöten bleiben ungeprüfte Möglichkeiten. Vollständige Prüfmatrix einschließlich SAI-Clocks, DMA, Signalpegel, Audio-Sync, Steuerung, Mixing und Versorgung/USB-Backfeeding: [Forschungsoption](research/DAISY_DIGITAL_COPROCESSOR_OPTION.md). Kein Flash oder Hardwareeingriff erfolgt; M7 bleibt optional.
+
 ## 4. Backup und Recovery (Pflicht vor jeder Firmwareänderung, D012)
 
 Allgemeine Regeln:

@@ -60,3 +60,9 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-LT-1 | Sample-Clock-Synchronisation zwischen mehreren Modulen (S/PDIF als Taktquelle?) |
 | Q-LT-2 | Analoges vs. digitales Mischen mehrerer Module |
 | Q-LT-3 | Kann ein Daisy Seed in eine AMYboard-S/PDIF-Kette eingebunden werden? |
+| Q-LT-4 | **UNGEPRÜFT:** Seed3 Desktop Dev Kit + Seed 1.2 als digitaler DSP-Koprozessor: passen D26/D27/D28 (ggf. D25/D24) einschließlich Pin-AF, SAI-Blöcken und KiCad-Netzen? Welche MUX-/Schalterfunktionen müssen entfallen, umgelegt oder elektrisch getrennt werden; gibt es alternative Pins? |
+| Q-LT-5 | **UNGEPRÜFT:** Wie werden Seed3-Codec und SAI2-Link gemeinsam getaktet? Sind DMA, Cache/Puffer, Einweg-/Duplex-Audio, Start/Reset und Langzeit-Synchronisierung ohne Sample-Slips möglich; welche Latenz entsteht? |
+| Q-LT-6 | **UNGEPRÜFT:** Welcher bidirektionale Steuerweg, Ereigniszeitbezug und digitales Mixing am Seed3 sind praktikabel? Kann Seed 1.2 ohne Nutzung seines Codecs im Audioweg arbeiten? |
+| Q-LT-7 | **UNGEPRÜFT:** Sind Signalpegel, ausgeschalteter Partner, Strombudget und USB-/externe Versorgung beider Seeds rückspeisefrei (auch über GPIO)? Siehe Q-MECH-8. |
+
+Prüfplan für Q-LT-4 bis Q-LT-7: [Daisy-Koprozessor-Forschungsoption](research/DAISY_DIGITAL_COPROCESSOR_OPTION.md), Stand 11.10.2026. Keine davon ist beantwortet; Forschung erst im optionalen M7 nach Neubewertung.

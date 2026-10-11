@@ -121,6 +121,8 @@ Sample-Verwaltung, Grain-Engine (Referenz: DaisyExamples `patch/Nimbus` = Clouds
 ## M7 – Multi-DSP-Experimente (optional, kein Teil von V1.0)
 Zwei AMYboards (S/PDIF-Kette, eigenes `override_send`-Voice-Splitting), zwei Daisys, Layering, FX-Modul. **Vor Beginn neu bewerten:** Aufwand, Nutzen, Clock-Sync, Latenz, Mischung.
 
+**Dokumentationsstand 11.10.2026:** [Seed3 Desktop Dev Kit + Seed 1.2 als rein digitaler DSP-Koprozessor](research/DAISY_DIGITAL_COPROCESSOR_OPTION.md) als ausdrücklich **UNGEPRÜFTE spätere Forschungsoption** aufgenommen. Zuerst revisionsrichtige Pin-AF-/KiCad-, Clock- und Versorgungsprüfung; Hardware-/Firmwareversuche erst nach gesondertem Auftrag. M7 wurde nicht begonnen; M1 bleibt der nächste Meilenstein.
+
 ---
 
 ## G2 – Endgültiges Gehäuse (nach M4)
