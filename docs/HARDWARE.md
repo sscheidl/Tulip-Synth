@@ -251,3 +251,19 @@ Vor einer Umsetzung prüfen (Q-MECH-12):
 - Sind Masseführung, Audio-Störgeräusche, Wärme, isolierte Befestigung, Zugentlastung und Recovery-Zugänge geeignet?
 
 Für einen späteren Prüfbericht Hub-/Netzteilmodell, Ausgangswerte, verwendete Anschlüsse, Last und Messwerte dokumentieren. Keine bestätigte Eignung für die vier Module behauptet.
+
+## 7. Weitere vorhandene Boards und Werkzeuge – Zweck und Eignung getrennt
+
+Inventarhinweis des Eigentümers, 11.10.2026: folgende Teile liegen ungenutzt vor. Die Bezeichnungen und Bestückung wurden vom Eigentümer genannt, nicht am Gerät geprüft. **Keine Einplanung als zusätzliche Audio-DSP-Module und keine Hardwaretests erfolgt.**
+
+| Teil laut Eigentümer | Möglicher Zweck im Projekt (Vorschlag, keine Festlegung) | Eignung des konkreten Exemplars |
+|---|---|---|
+| Arduino Uno „ARD R3 DIP“, ATmega328 | Versuchsboard für Taster, Encoder, Potentiometer und einfache Steuerdaten; ggf. separate Bedienoberfläche | **UNGEPRÜFT:** genaue MCU-/Boardvariante, Zustand, Bootloader, Pins, Spannungspegel, Stromversorgung und benötigte Scan-/Übertragungsrate prüfen |
+| AZ Delivery Nano V3 mit CH340 | Kompakte Alternative für dieselben Bedien-/Steueraufgaben, falls ein zusätzlicher Controller tatsächlich benötigt wird | **UNGEPRÜFT:** MCU, Boardrevision, Bootloader, USB-/Treiberfunktion, Pins und Pegel prüfen; CH340-Angabe allein beschreibt nicht den Hauptprozessor |
+| „STM8 und STM32 Programmer ST-LINK V2 01“ | Optionales Programmier-/Debugwerkzeug für die STM32-basierten Daisys; kein zusätzliches Synthesemodul | **UNGEPRÜFT:** Identität/Variante, Funktion, Firmware-/Softwareunterstützung, Pinbelegung, Zielpegel und zugängliche SWD-Anschlüsse der jeweiligen Daisy prüfen |
+
+**ST-LINK-Einschätzung des Eigentümers:** vermutlich nutzlos. Diese Einschätzung bleibt getrennt von der technischen Eignungsprüfung: Für den normalen Instrumentbetrieb ist kein ST-LINK vorgesehen; bei späterer Firmwareentwicklung könnte er für Debugging nützlich sein. Ob das vorhandene Exemplar mit den eigenen Daisys funktioniert, ist offen. Die Bezeichnung „STM8 und STM32“ beschreibt hier den genannten Programmer, kein zusätzlich gemeldetes STM8-Board.
+
+**Referenzen, nur für den grundsätzlichen Zweck:** [Arduino UNO R3](https://docs.arduino.cc/hardware/uno-rev3/) beschreibt ein ATmega328P-Mikrocontrollerboard; diese Referenz bestätigt nicht die konkrete „ARD“-Variante. [STMicroelectronics ST-LINK/V2](https://www.st.com/en/development-tools/st-link-v2.html) beschreibt einen Programmer/Debugger mit SWIM für STM8 und JTAG/SWD für STM32; keine Bestätigung des vorliegenden „V2 01“-Exemplars. Quellen am 11.10.2026 gelesen.
+
+Vor einer Verwendung zuerst den konkreten Bedarf klären, danach die Eignung prüfen (Q-HW-8 bis Q-HW-10). Insbesondere bei Uno/Nano keine direkte Verbindung zu den ESP32-/Daisy-Steuerpins ohne Pegelprüfung vorsehen. Es wurden keine Treiber installiert, Geräte verbunden oder Firmware verändert.

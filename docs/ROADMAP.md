@@ -43,6 +43,8 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 - Originaldokumente (Übergaben vom 09.10., Claude-Bericht) ins Repo legen → `docs/handovers/`
 - Windows-Werkzeuginventur ausführen (`DEV_ENVIRONMENT.md`, Abschnitt 3)
 
+**Inventarergänzung 11.10.2026:** Vorhandene Uno-/Nano-Boards und ST-LINK-V2-Programmer in [HARDWARE §7](HARDWARE.md#7-weitere-vorhandene-boards-und-werkzeuge--zweck-und-eignung-getrennt) aufgenommen. Zweckvorschläge und **UNGEPRÜFTE** Eignung getrennt; keine Verwendung beschlossen, keine Versuche begonnen (Q-HW-8 bis Q-HW-10).
+
 ---
 
 ## M1 – Erstes Hardwareinstrument: Tulip + ein AMYboard
