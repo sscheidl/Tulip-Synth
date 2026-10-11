@@ -128,6 +128,9 @@ Zwei AMYboards (S/PDIF-Kette, eigenes `override_send`-Voice-Splitting), zwei Dai
 ## G2 – Endgültiges Gehäuse (nach M4)
 
 Erst wenn Modulzahl, Anschlüsse und Stromkonzept aus der Praxis feststehen.
+
+**Ideenstand 11.10.2026:** USB-Hub-Platine mit externem Netzteil als interne Stromverteilung festgehalten ([HARDWARE §6.5](HARDWARE.md#65-idee-usb-hub-platine-mit-externem-netzteil-als-stromverteilung-ungeprüft), Q-MECH-12). **UNGEPRÜFT**, Eignungsprüfung durch den Eigentümer offen; keine Umsetzung begonnen.
+
 1. Anforderungen aus G1 auswerten (HARDWARE.md §6).
 2. Stromkonzept bestätigen: Vorzug ist das ausgebaute RackBrute-6U-Netzteilmodul mit Bus für die DSP-Boards, Tulip mit eigener 5-V-Versorgung; Absicherung, Massekonzept, 5-V-Rückspeiseschutz beim Flashen (HARDWARE.md §6.4).
 3. CAD für 3D-Druck, Modulschacht mit Reserveplätzen, Anschlussfeld.

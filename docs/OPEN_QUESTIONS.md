@@ -40,6 +40,7 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-MECH-5 | Massekonzept und Brummschleifen bei gemeinsamer Versorgung und gemeinsamen Audioausgängen | Messung | G2 |
 | Q-MECH-6 | Wärmeentwicklung im geschlossenen Gehäuse, Belüftungsbedarf | Temperaturmessung im Dauertest | G2 |
 | Q-MECH-7 | Welche Audioanschlüsse soll das Endgerät haben (Stereo-Out, Kopfhörer, Audio-In, Einzelausgänge je Modul, S/PDIF)? | Entscheidung Eigentümer nach M4 | G2 |
+| Q-MECH-12 | **UNGEPRÜFT:** Eignet sich die Platine eines USB-Hubs mit externem Netzteil als interne Stromverteilung für bis zu vier Module? Modell/Netzteilwerte, Betrieb ohne Host, Strom je Port/gesamt, Spannung unter Last, Schutzschaltungen, USB-Rückspeisung, Audio-Störungen und Wärme offen. | Eigentümer prüft; Idee vom 11.10.2026, siehe [HARDWARE §6.5](HARDWARE.md#65-idee-usb-hub-platine-mit-externem-netzteil-als-stromverteilung-ungeprüft) | G2 |
 
 ## Software / DSP
 

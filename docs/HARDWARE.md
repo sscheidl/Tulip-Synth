@@ -235,3 +235,19 @@ Weitere Hersteller (z. B. Doepfer, Tiptop, DIY-Bausätze) sind nicht untersucht.
   - Die Aufteilung auf vier getrennte Kreise im 6U-Bus muss beim Belegen berücksichtigt werden (Budget je Kreis).
   - **5 V für den Tulip:** entweder ein eigenes USB-C-Netzteil (einfachste Lösung) oder ein fertiger DC/DC-Abwärtswandler aus der +12-V-Schiene (~0,6 A × 5 V ≈ 0,3 A an +12 V bei ~90 % Wirkungsgrad, passt ins Budget). Ein fertiges Wandlermodul ist keine eigene Netzteilplatine. In beiden Fällen gilt der Rückspeiseschutz beim Flashen (Q-MECH-8).
 - **Masse:** Tulip (USB-Netzteil) und AMYboard (Rack-Netzteil) sind über Grove-GND verbunden. Auf Brummschleifen achten (Q-HW-3, Q-MECH-5).
+
+### 6.5 Idee: USB-Hub-Platine mit externem Netzteil als Stromverteilung (UNGEPRÜFT)
+
+**Idee des Eigentümers, 11.10.2026:** Die Platine eines USB-Hubs mit eigenem externem Netzteil könnte im gemeinsamen Gehäuse als Stromverteilung dienen. Vorgesehen sind kurze Versorgungskabel zu bis zu vier Modulen: Tulip CC, AMYboard, Daisy Seed3 Desktop Dev Kit und Audrey II bzw. deren älterem Seed. Das externe Netzteil speist die Hub-Platine; diese ist als Verteiler gedacht. Eine Nutzung als USB-Datenhub ist damit nicht festgelegt.
+
+**Status: UNGEPRÜFT, lediglich festgehalten.** Hub-Modell, Netzteilwerte und geeignete Versorgungseingänge der Module sind noch zu bestimmen. Der Eigentümer prüft die Eignung; kein Umbau oder Anschluss wurde durchgeführt. Die Idee ist eine zusätzliche Option, keine Ablösung der bisherigen RackBrute-Vorzugslösung.
+
+Vor einer Umsetzung prüfen (Q-MECH-12):
+
+- Liefern die vorgesehenen Ausgänge ohne angeschlossenen Computer/USB-Host dauerhaft die benötigte Spannung und den benötigten Strom?
+- Reichen Strom je Port und Gesamtleistung mit Reserve für alle Module, Einschaltspitzen und die Dev-Kit-/Audrey-Peripherie? Spannung unter gleichzeitiger Last messen.
+- Welche Portschalter, Strombegrenzungen und Schutzschaltungen enthält die Platine? Beim Ausbau erhalten; keine ungeprüfte Überbrückung.
+- Ist Rückspeisung beim Anschluss eines Programmiercomputers ausgeschlossen, einschließlich Hub-Upstream, USB-VBUS und zusätzlicher Versorgung der Module (Q-MECH-8)?
+- Sind Masseführung, Audio-Störgeräusche, Wärme, isolierte Befestigung, Zugentlastung und Recovery-Zugänge geeignet?
+
+Für einen späteren Prüfbericht Hub-/Netzteilmodell, Ausgangswerte, verwendete Anschlüsse, Last und Messwerte dokumentieren. Keine bestätigte Eignung für die vier Module behauptet.
