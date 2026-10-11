@@ -1,18 +1,19 @@
 # Tulip Synth
 
-Offene, experimentelle **Hardware-Synthesizer-Plattform** als zusammenhängendes Desktopinstrument: Ein [Tulip CC](https://github.com/shorepine/tulipcc) mit Touchscreen übernimmt GUI, Presets und Steuerung. Die Klangerzeugung läuft auf externen DSP-Modulen: zuerst einem **AMYboard** (ESP32-S3), später einem **Daisy Seed** (STM32H750, vorhanden in einer Synthux Audrey II).
+Offene, experimentelle **Hardware-Synthesizer-Plattform** als zusammenhängendes Desktopinstrument: Ein [Tulip CC](https://github.com/shorepine/tulipcc) mit Touchscreen übernimmt GUI, Presets und Steuerung. **Tulip + AMYboard und das Daisy Seed3 Desktop Dev Kit werden zunächst parallel eigenständig erprobt.** Danach wird ihre Verknüpfung und Erweiterung bewertet (D019). Eine Synthux Audrey II ist als weiteres Gerät vorhanden.
 
 > **Groß denken, klein bauen.**
-> Unmittelbares Ziel: **ein Tulip, ein AMYboard, eine funktionierende GUI und ein spielbarer Synthesizer.**
-> Alles Weitere baut darauf auf.
+> Zwei praktische Wege: **Tulip + AMYboard spielbar machen und parallel das Daisy Desktop Dev Kit erproben.**
+> Verbindung und Erweiterung folgen aus den Erfahrungen.
 
 ## Projektstatus
 
 | Meilenstein | Inhalt | Status |
 |---|---|---|
 | M0 | Repository, Dokumentation, Architektur, Roadmap | abgeschlossen (siehe [ROADMAP](docs/ROADMAP.md)) |
-| M1 | Tulip + AMYboard, Touch-GUI, Karplus-Strong | **nächster Schritt** |
-| M2–M7 | Daisy, gemeinsame C++-Engine, Resonator, Physical Modeling, Granular, Multi-DSP (optional) | geplant |
+| M1 / M2a | Tulip + AMYboard / Daisy Desktop Dev Kit eigenständig | **parallel als Nächstes** |
+| M2b | Verknüpfung bewerten und Daisy integrieren | nach M1 + M2a |
+| M3–M7 | Gemeinsame C++-Engine, Resonator, Physical Modeling, Granular, Multi-DSP (optional) | geplant |
 | G1/G2 | Entwicklergehäuse (mit M1) / endgültiges 3D-gedrucktes Gehäuse (nach M4) | geplant |
 
 Es gibt noch **keinen Code**. Das ist Absicht (M0 = nur Dokumentation).
