@@ -52,6 +52,8 @@ Aus dem Inventar `sscheidl/Custom-Firmware@255f3ea` (`inventory/firmware-index.c
 
 ## SD-Karten-Recherche (11.10.2026)
 
+Tulip-Menüanpassung (17.10.2026): eigene LVGL-/Python-Anpassung in `devices/tulip/large_menu.py`, vorhandene Launcher-API aus [ui.py, Tulip-Stand 17d1ef1](https://github.com/shorepine/tulipcc/blob/17d1ef1d14aa0a51520fced04c87c1328f79bbd0/tulip/shared/py/ui.py), MIT. Kein Fremdcode kopiert.
+
 Quellen, Abrufstand und Abgrenzung von Herstellerangaben, Rechnungen und ungeprüfter Hardware: [research/SD_CARDS_2026-10-11.md](research/SD_CARDS_2026-10-11.md). Ergänzende Primärquellen: [Daisy Seed Datenblatt](https://daisy.nyc3.cdn.digitaloceanspaces.com/products/seed/Daisy_Seed_datasheet.pdf), [libDaisy SDMMC](https://github.com/electro-smith/libDaisy/blob/master/src/per/sdmmc.h), [FatFs-Konfiguration](https://github.com/electro-smith/libDaisy/blob/master/src/sys/ffconf.h), [SD Association Speed Class](https://www.sdcard.org/developers/sd-standard-overview/speed-class/) und [A1/A2](https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/). Kein Fremdcode übernommen.
 
 ## Nicht verfügbare Originaldokumente
