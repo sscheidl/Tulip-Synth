@@ -29,3 +29,9 @@ Eigentümer korrigiert das temporäre Passwort und bestätigt Kanal 1. Zugangsda
 Auf Wunsch Neustart mit `machine.reset()`. Danach BELEGT: automatische Verbindung aus `/user/boot.py`, DHCP-Adresse vorhanden, Station-Status 1010; `ui._large_menu_installed == True`. Erfolg bei vom Eigentümer auf Kanal 1 gesetztem Router und zuletzt gezeigtem WPA2/WPA3-Modus (keine spätere Änderung der Verschlüsselung mitgeteilt). Passwortkorrektur, Kanaländerung und Neustart nicht einzeln isoliert; keine eindeutige Fehlerursache behauptet. WLAN-Dauerbetrieb und Grafikstabilität bei WLAN weiter durch Eigentümer zu beobachten. Kein Kennwort im Repository.
 
 Menü nach Neustart geöffnet: Eintragsmindesthöhe erneut 52 Pixel bestätigt; bei verbundenem WLAN `tulip.fps()` = 43,59198. Menü bleibt zur Fingerprüfung geöffnet. Das ist kein Nachweis eines glitchfreien Bildes.
+
+## Erneute Grafik- und Touchprobleme
+
+Eigentümer meldet Menü per Finger nicht nutzbar, Touch reagiert falsch, erneut Display-Glitches. WLAN ausschließlich zur Laufzeit ausgeschaltet, Menü und Displaytakt unverändert. Abschließende eindeutige Auswahl des Eigentümers: „Glitches weg, Touch weiterhin falsch“ (ersetzt die zuvor gesendete Zahl 3). Das spricht für getrennt zu prüfende Probleme, beweist jedoch noch keine bestimmte WLAN-/Displayursache.
+
+Auf ausdrücklichen Wunsch WLAN aktiviert belassen und erneut neu gestartet. Danach BELEGT: automatische WLAN-Verbindung mit IP, 43,61289 FPS, Menüanpassung geladen. Ausgelesene unveränderte Touch-Kalibrierung `(-2, -12, 0.8)` entspricht den voreingestellten GT911-Werten des Upstream-Codes; ohne gezielte Koordinatenmessung keine Korrektur vorgenommen. Visuelle Grafikstabilität nach diesem Neustart und Ursache des Touchfehlers weiterhin UNGEPRÜFT. Menüanpassung damit noch nicht als praktisch nutzbar abgenommen.

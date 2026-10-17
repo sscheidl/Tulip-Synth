@@ -76,6 +76,8 @@ Schritte (jeweils einzeln prüfbar):
 
 **WLAN-Abschluss:** nach Passwortkorrektur, Kanal 1 (Eigentümer) und Neustart automatische WLAN-Verbindung mit IP bestätigt. Größeres Menü nach Neustart geladen. Ursachen der zuvor fehlgeschlagenen Verbindung nicht getrennt isoliert; Fingerbedienung und Grafik-/WLAN-Dauerstabilität noch offen.
 
+**Offener Bedienfehler:** Eigentümer meldet weiterhin falschen Touch und erneute Glitches. Laufzeit-WLAN-Aus-Test: Glitches verschwinden laut Eigentümer, Touch bleibt falsch. Auf Wunsch WLAN an und erneut neu gestartet; Verbindung bestätigt. Touch-Kalibrierung unverändert, keine praktische Menü-Abnahme; Details im Prüfbericht.
+
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).
 3. **Lokaler Klang:** Auf dem Tulip AMY-KS-Note spielen (`wave=amy.KS`), ohne AMYboard (D018).
