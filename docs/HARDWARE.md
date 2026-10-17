@@ -26,6 +26,7 @@ Kennzeichnung: **BELEGT** / **GESCHÄTZT** / **UNGEPRÜFT**.
 | Eigenschaft | Wert | Status |
 |---|---|---|
 | Prozessor | ESP32-S3, MicroPython + AMY | BELEGT (`docs/amyboard/README.md`) |
+| Installierte Firmware / USB-REPL | MicroPython `1.24.0-preview`, Build `82e69df-dirty on 2026-06-30`; COM7, 115200 Baud / 8N1 | BELEGT am Gerät, 17.10.2026 ([Prüfbericht](research/AMYBOARD_SERIAL_2026-10-17.md)); `amy.version` nicht vorhanden, konkrete AMY-Version offen |
 | Audio | Line In/Out, S/PDIF In/Out, alles Stereo 3,5 mm | BELEGT (README, FAQ) |
 | Pegel | DIP-Schalter (4×) Line/Modular | BELEGT |
 | AMY-Samplerate / Block | 44,1 kHz / 256 Samples (Standard außerhalb Daisy/Web) | BELEGT (`amy/src/amy.h`) |
