@@ -60,6 +60,8 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 
 **Grafikdiagnose 17.10.2026:** Eigentümer meldet wandernde Streifen. Pixeltakt vorübergehend von 36 auf 33 MHz reduziert; etwa 40,0 FPS gemessen. Visuelle Fehlerbehebung noch UNGEPRÜFT; Verlauf im Updatebericht, keine Bootdateiänderung.
 
+**Folgebefund:** bei 40 Hz weiterhin Streifen, Wanderrichtung umgekehrt. Nach sauberem Neustart wieder Standardtakt 36 MHz / 43,6 FPS, WLAN nicht verbunden; visueller Befund noch offen. Keine bestätigte Fehlerbehebung.
+
 Schritte (jeweils einzeln prüfbar):
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).
