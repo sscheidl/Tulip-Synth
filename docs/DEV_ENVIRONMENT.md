@@ -110,6 +110,10 @@ Die Ergebnisse der Inventur stehen oben; das Skript bleibt für spätere Prüfun
 
 ## 4. Lokale Arbeitskopie
 
+### Ergänzung 17.10.2026: serielle Werkzeuge
+
+BELEGT am Host: pyserial 3.5, mpremote 1.29.0 und esptool 5.6.0 sind inzwischen im vorhandenen Python 3.12 installiert. In dieser Sitzung nichts installiert. Normale Tulip-REPL an COM9 mit pyserial / .NET geprüft. `mpremote connect COM9 resume exec ...` scheiterte am Eintritt in den Raw-REPL; nicht als funktionierender Dateitransferweg bestätigt. Details: [serielle Prüfung](research/TULIP_SERIAL_2026-10-17.md), [OTA-Verlauf](research/TULIP_UPDATE_2026-10-17.md).
+
 ```powershell
 cd "D:\Eigene Dateien\Eigene Dokumente\Playground"
 # Vorher prüfen, ob "Tulip-Synth" bereits existiert und Inhalte hat (nicht überschreiben!)

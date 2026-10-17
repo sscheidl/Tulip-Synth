@@ -18,7 +18,7 @@ Kennzeichnung: **BELEGT** / **GESCHÄTZT** / **UNGEPRÜFT**.
 | I²C | Grove/Mabee-Anschluss | BELEGT |
 | Stromaufnahme | ~575 mA @ 5 V inkl. Display | BELEGT |
 | Hardware-Revision des eigenen Geräts | – | UNGEPRÜFT |
-| Installierte Firmware-Version | MicroPython `1.24.0-preview`, Build `82e69df-dirty on 2026-07-08` | BELEGT am Gerät, 17.10.2026 ([USB-REPL-Prüfung](research/TULIP_SERIAL_2026-10-17.md)) |
+| Installierte Firmware-Version | MicroPython `1.24.0-preview`, Build `82e69df-dirty on 2026-10-14`, OTA-Partition `ota_1` | BELEGT am Gerät nach offiziellem OTA, 17.10.2026 ([Updatebericht](research/TULIP_UPDATE_2026-10-17.md)); vorheriger Stand im USB-REPL-Prüfbericht |
 | USB-REPL am Windows-Host | COM9, CH340K, 115200 Baud / 8N1 | BELEGT am Gerät, 17.10.2026; Portzuordnung kann sich ändern |
 
 ## 2. AMYboard (erste Syntheseplattform)
@@ -126,6 +126,8 @@ Allgemeine Regeln:
 | Tulip CC | Flashing-Anleitung `docs/tulip_flashing.md` | BELEGT, UNGEPRÜFT am Gerät |
 
 In M1 wird **keine** Firmware geflasht. Ein offizielles AMYboard- oder Tulip-Update wäre nur nach Freigabe zulässig.
+
+**Ausdrücklicher Updateauftrag 17.10.2026:** offizielles Tulip-OTA einschließlich `/sys` freigegeben. Sicherung auf ausdrücklichen Wunsch des Eigentümers übersprungen (Gerät laut Eigentümer blank). Ausgangszustand, Recovery-Weg und Verlauf: [Updatebericht](research/TULIP_UPDATE_2026-10-17.md). Kein allgemeiner Flashauftrag für weitere Geräte oder eigene Firmware.
 
 ## 5. Verkabelung für M1
 
