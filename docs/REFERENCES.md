@@ -58,6 +58,8 @@ Quellen, Abrufstand und Abgrenzung von Herstellerangaben, Rechnungen und ungepr�
 
 ## Nicht verfügbare Originaldokumente
 
+Voices-Touch-Diagnose (17.10.2026): [Voices](https://github.com/shorepine/tulipcc/blob/main/tulip/shared/py/voices.py) und [GT911-Treiber](https://github.com/shorepine/tulipcc/blob/main/tulip/esp32s3/gt911_touchscreen.c), MIT, main abgerufen 17.10.2026. Eigene Anpassung devices/tulip/voices_touch.py verwendet Geometrie und APIs, kein Upstream-Code kopiert. Eingefrorener Gerätecode nicht bytegleich verglichen.
+
 - `claude/Tulip_Synth_Machbarkeit_Roadmap_2026-10-09.md`
 - `Tulip_AMYboard_Projektuebergabe_2026-10-09.md`
 - Daisy-/Audrey-II-Projektübergabe vom 09.10.2026

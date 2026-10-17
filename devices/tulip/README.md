@@ -1,5 +1,7 @@
 # Persönliche Tulip-Anpassung: größeres Menü
 
+Zusätzlicher Voices-Touch-Laufzeittest: voices_touch.py nach /user/lib übertragen. Bei geöffneter Voices-App `import voices_touch; voices_touch.apply()` ausführen. Gleicht Noten bei Gleiten/Mehrfingerbedienung ab, keine Bootintegration. Neustart entfernt die Laufzeitkorrektur. Praktische Wirksamkeit **UNGEPRÜFT**; [Prüfbericht](../../docs/research/TULIP_VOICES_TOUCH_2026-10-17.md). Hostprüfung: `python devices/tulip/test_voices_touch.py`.
+
 `large_menu.py` kommt auf den Tulip nach `/user/lib/large_menu.py`. In `/user/boot.py`:
 
 ```python
