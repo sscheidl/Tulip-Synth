@@ -17,7 +17,7 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 
 | ID | Frage | Klärung | Für |
 |---|---|---|---|
-| Q-HW-1 | Firmwareversionen von Tulip CC und AMYboard | am Gerät ablesen | M1 |
+| Q-HW-1 | Firmwareversionen von Tulip CC und AMYboard | **Teilweise beantwortet 17.10.2026:** Tulip-REPL liefert MicroPython `1.24.0-preview`, Build `82e69df-dirty on 2026-07-08`; siehe research/TULIP_SERIAL_2026-10-17.md. AMY-Version und AMYboard-Firmware noch offen. | M1 |
 | Q-HW-2 | Hardware-Revision des Tulip CC (z. B. v4r11) und USB-Buchsen | Gerät/Platine | M1 |
 | Q-HW-3 | Brummschleife bei Grove-Masseverbindung + getrennter USB-Versorgung? | Messung/Hören | M1 |
 | Q-HW-4 | Daisy-Seed-Revision, Codec-Typ, USB-Buchse der eigenen Audrey | Platine, Datenblatt Rev7 | M2 |

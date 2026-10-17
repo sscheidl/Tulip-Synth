@@ -52,6 +52,8 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 
 **Ziel:** Ein spielbarer Hardware-Synthesizer mit grafischer Bedienung.
 
+**Prüfung 17.10.2026:** Tulip-USB-REPL an COM9 mit 115200 Baud erreicht; Gerätekennung und MicroPython-Firmwarestand ausgelesen. [Prüfbericht](research/TULIP_SERIAL_2026-10-17.md). Hardware-Revision, Audio und Dateitransfer weiterhin UNGEPRÜFT; M1 noch nicht abgeschlossen.
+
 Schritte (jeweils einzeln prüfbar):
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).

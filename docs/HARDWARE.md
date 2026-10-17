@@ -18,7 +18,8 @@ Kennzeichnung: **BELEGT** / **GESCHÄTZT** / **UNGEPRÜFT**.
 | I²C | Grove/Mabee-Anschluss | BELEGT |
 | Stromaufnahme | ~575 mA @ 5 V inkl. Display | BELEGT |
 | Hardware-Revision des eigenen Geräts | – | UNGEPRÜFT |
-| Installierte Firmware-Version | – | UNGEPRÜFT |
+| Installierte Firmware-Version | MicroPython `1.24.0-preview`, Build `82e69df-dirty on 2026-07-08` | BELEGT am Gerät, 17.10.2026 ([USB-REPL-Prüfung](research/TULIP_SERIAL_2026-10-17.md)) |
+| USB-REPL am Windows-Host | COM9, CH340K, 115200 Baud / 8N1 | BELEGT am Gerät, 17.10.2026; Portzuordnung kann sich ändern |
 
 ## 2. AMYboard (erste Syntheseplattform)
 
