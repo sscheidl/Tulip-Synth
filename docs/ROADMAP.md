@@ -68,6 +68,8 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 
 **Separates AMYboard 17.10.2026:** USB-REPL an COM7 erreicht, Firmware-Build vom 30.06.2026 ausgelesen. [Prüfbericht](research/AMYBOARD_SERIAL_2026-10-17.md). Neuerer offizieller Build verfügbar; kein Update vorgenommen, Audio/I²C-Verbindung zum Tulip noch nicht geprüft.
 
+**AMYboard-Update anschließend durchgeführt:** auf ausdrücklichen Auftrag und ohne Sicherung (ausdrücklicher Verzicht) offizielle Firmware und Systemdateien vom 14.10.2026 per USB geschrieben und verifiziert. Start auf `ota_1`, AMY 1.2.200 und REPL jetzt COM11 bestätigt. [Updatebericht](research/AMYBOARD_UPDATE_2026-10-17.md). Audio/CV/SD/I²C und Dauertest weiterhin offen.
+
 Schritte (jeweils einzeln prüfbar):
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).

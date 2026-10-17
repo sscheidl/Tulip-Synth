@@ -26,7 +26,7 @@ Kennzeichnung: **BELEGT** / **GESCHÄTZT** / **UNGEPRÜFT**.
 | Eigenschaft | Wert | Status |
 |---|---|---|
 | Prozessor | ESP32-S3, MicroPython + AMY | BELEGT (`docs/amyboard/README.md`) |
-| Installierte Firmware / USB-REPL | MicroPython `1.24.0-preview`, Build `82e69df-dirty on 2026-06-30`; COM7, 115200 Baud / 8N1 | BELEGT am Gerät, 17.10.2026 ([Prüfbericht](research/AMYBOARD_SERIAL_2026-10-17.md)); `amy.version` nicht vorhanden, konkrete AMY-Version offen |
+| Installierte Firmware / USB-REPL | MicroPython `1.24.0-preview`, Build `82e69df-dirty on 2026-10-14`, AMY `1.2.200`; aktuell COM11, 115200 Baud / 8N1 | BELEGT nach offiziellem USB-Update, 17.10.2026 ([Updatebericht](research/AMYBOARD_UPDATE_2026-10-17.md)); vorheriger Build vom 30.06.2026 im seriellen Prüfbericht |
 | Audio | Line In/Out, S/PDIF In/Out, alles Stereo 3,5 mm | BELEGT (README, FAQ) |
 | Pegel | DIP-Schalter (4×) Line/Modular | BELEGT |
 | AMY-Samplerate / Block | 44,1 kHz / 256 Samples (Standard außerhalb Daisy/Web) | BELEGT (`amy/src/amy.h`) |
@@ -129,6 +129,8 @@ Allgemeine Regeln:
 In M1 wird **keine** Firmware geflasht. Ein offizielles AMYboard- oder Tulip-Update wäre nur nach Freigabe zulässig.
 
 **Ausdrücklicher Updateauftrag 17.10.2026:** offizielles Tulip-OTA einschließlich `/sys` freigegeben. Sicherung auf ausdrücklichen Wunsch des Eigentümers übersprungen (Gerät laut Eigentümer blank). Ausgangszustand, Recovery-Weg und Verlauf: [Updatebericht](research/TULIP_UPDATE_2026-10-17.md). Kein allgemeiner Flashauftrag für weitere Geräte oder eigene Firmware.
+
+**Separater AMYboard-Updateauftrag 17.10.2026:** offizielles Update ausdrücklich freigegeben, Sicherung auf ausdrücklichen Folgeauftrag ebenfalls übersprungen. Ausgangszustand und Recovery vor OTA festgehalten: [AMYboard-Updatebericht](research/AMYBOARD_UPDATE_2026-10-17.md).
 
 ## 5. Verkabelung für M1
 
