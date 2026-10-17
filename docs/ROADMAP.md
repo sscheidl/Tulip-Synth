@@ -37,12 +37,12 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 - [x] Claude-Ergebnisse konsolidiert, soweit verfügbar (`CLAUDE_REVIEW_2026-10-09.md`)
 - [x] Kernbefunde an Primärquellen verifiziert (`research/SOURCE_VERIFICATION_2026-10-10.md`)
 - [x] Architekturentscheidungen (`DECISIONS.md`)
-- [x] Werkzeuginventur (`DEV_ENVIRONMENT.md`); Inventur des Windows-Hosts steht noch aus
+- [x] Werkzeuginventur (`DEV_ENVIRONMENT.md`); Windows-Host am 11.10.2026 geprüft (Versionen/Pfade, keine Hardwaretests)
 - [x] Roadmap
 
 **Offene Reste aus M0** (blockieren M1 nicht):
 - Originaldokumente (Übergaben vom 09.10., Claude-Bericht) ins Repo legen → `docs/handovers/`
-- Windows-Werkzeuginventur ausführen (`DEV_ENVIRONMENT.md`, Abschnitt 3)
+- Windows-Werkzeuginventur erledigt (11.10.2026, `DEV_ENVIRONMENT.md`, Abschnitt 3); USB-REPL/Dateitransfer am Gerät in M1 noch UNGEPRÜFT
 
 **Inventarergänzung 11.10.2026:** Vorhandene Uno-/Nano-Boards und ST-LINK-V2-Programmer in [HARDWARE §7](HARDWARE.md#7-weitere-vorhandene-boards-und-werkzeuge--zweck-und-eignung-getrennt) aufgenommen. Zweckvorschläge und **UNGEPRÜFTE** Eignung getrennt; keine Verwendung beschlossen, keine Versuche begonnen (Q-HW-8 bis Q-HW-10).
 
@@ -74,6 +74,8 @@ Schritte (jeweils einzeln prüfbar):
 - [ ] Tulip und AMYboard sind im Entwicklergehäuse verschraubt; Kabel zugentlastet; Recovery-Zugänge ohne Zerlegen erreichbar.
 
 **Nicht in M1:** eigene Firmware, eigene DSP-Engine, Daisy, mehrere Presets-Bänke, Visualisierung, CAD-Endgehäuse, eigene Netzteilplatine.
+
+**SD-Karten-Recherche (11.10.2026):** [Kartenauswahl, Speichergrenzen und konkrete 32-GB-U3/V30-Angebote](research/SD_CARDS_2026-10-11.md) dokumentiert; Quellen geprüft, eigene Karten/Hardware UNGEPRÜFT. Kein M1-Blocker für Karplus-Strong und keine Umsetzung späterer Sample-/Granular-Meilensteine.
 
 **Risiken:** Stromversorgung/Boot-Loops (Gegenmaßnahme: getrennte Versorgung) · I²C-Stabilität bei hoher Parameterrate (Rate begrenzen, Änderungen bündeln) · AMY-KS klingt zu einfach (akzeptiert, Ausbau in M4) · GUI-Rendering stört Audio auf dem Tulip (Audio läuft auf dem AMYboard, Risiko gering).
 

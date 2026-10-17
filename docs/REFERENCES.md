@@ -50,7 +50,11 @@ Aus dem Inventar `sscheidl/Custom-Firmware@255f3ea` (`inventory/firmware-index.c
 - `audrey II/Daisy Seed/ES_Daisy_Seed_Rev7.pdf`, `Daisy_Seed_datasheet_v1-1-5.pdf`, `Daisy_Seed_pinout.pdf`
 - `audrey II/Tools/DaisyExamples-master.zip`, `oopsy.zip`, `zadig-2.9.exe`
 
-## Nicht verfügbar in dieser Sitzung
+## SD-Karten-Recherche (11.10.2026)
+
+Quellen, Abrufstand und Abgrenzung von Herstellerangaben, Rechnungen und ungeprüfter Hardware: [research/SD_CARDS_2026-10-11.md](research/SD_CARDS_2026-10-11.md). Ergänzende Primärquellen: [Daisy Seed Datenblatt](https://daisy.nyc3.cdn.digitaloceanspaces.com/products/seed/Daisy_Seed_datasheet.pdf), [libDaisy SDMMC](https://github.com/electro-smith/libDaisy/blob/master/src/per/sdmmc.h), [FatFs-Konfiguration](https://github.com/electro-smith/libDaisy/blob/master/src/sys/ffconf.h), [SD Association Speed Class](https://www.sdcard.org/developers/sd-standard-overview/speed-class/) und [A1/A2](https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/). Kein Fremdcode übernommen.
+
+## Nicht verfügbare Originaldokumente
 
 - `claude/Tulip_Synth_Machbarkeit_Roadmap_2026-10-09.md`
 - `Tulip_AMYboard_Projektuebergabe_2026-10-09.md`
