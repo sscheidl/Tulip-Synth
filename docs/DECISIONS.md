@@ -24,6 +24,7 @@ Format: kurz und verbindlich. Änderungen nur durch neue Einträge oder Statuswe
 | D016 | Keine Firmware-Binaries im Git | aktiv | alle |
 | D017 | M1 nutzt die Standard-AMYboard-Firmware und AMYs eingebautes Karplus-Strong | aktiv | M1 |
 | D018 | M1-Prototyp zuerst gegen Tulips lokale AMY-Engine, dann Umschaltung auf AMYboard | aktiv | M1 |
+| D019 | Tulip/AMYboard und Daisy Desktop Dev Kit parallel eigenständig erproben; Verknüpfung und Erweiterung danach bewerten | aktiv (11.10.2026) | M1 + M2a; Integration M2b |
 
 ---
 
@@ -89,3 +90,15 @@ AMY bietet Karplus-Strong als Oszillator-Wellenform `KS` (BELEGT). M1 steuert au
 
 ### D018 – Erst lokal auf dem Tulip, dann AMYboard
 Tulip CC hat eine eigene AMY-Engine mit Karplus-Strong (BELEGT, tulipcc README). GUI und Parametermodell werden zuerst gegen die lokale Engine entwickelt. Die Umschaltung auf das AMYboard erfolgt über `amy.override_send` (I²C). So lassen sich GUI-Fehler und Verbindungsfehler getrennt finden. Das Erfolgskriterium von M1 bleibt der Betrieb **mit** AMYboard.
+
+### D019 – Zwei parallele Erprobungswege, Integration danach
+
+Auftrag des Eigentümers vom 11.10.2026: **Tulip + AMYboard testen und parallel das Daisy Desktop Dev Kit erproben. Danach entscheiden, wie beide verbunden und erweitert werden.**
+
+- Weg A (M1): Tulip-Bedienung, AMYboard-Ansteuerung, Klang, Presets und Stabilität praktisch prüfen.
+- Weg B (M2a): Daisy Seed3 Desktop Dev Kit zunächst eigenständig kennenlernen: Revision/Firmware, Audio-I/O, Bedienelemente und Entwicklungsweg prüfen; einen kleinen Synth-/Effektversuch als späteres Testziel wählen.
+- M2a darf parallel zu M1 stattfinden und setzt keine Tulip-GUI-/MIDI-Anbindung voraus. Damit wird die bisher strikt serielle Reihenfolge M1 → gesamte Daisy-Erprobung abgelöst. D005s USB-MIDI-Voraussetzung bezieht sich auf die bisher geplante Integration, nicht auf eigenständige Dev-Kit-Tests.
+- Erst nach den praktischen Ergebnissen Anschluss-/Steuerweg, Audioführung und Mixing bewerten (M2b). Eine digitale Koprozessor-Erweiterung bleibt die UNGEPRÜFTE optionale M7-Forschung; keine automatische Festlegung auf SAI2 oder ein gemeinsames Audiosystem.
+- Audrey II ist nicht Voraussetzung für Weg B. Uno/Nano bleiben Reserve ohne eigenen Entwicklungsstrang.
+
+D013 gilt weiter für die Entwicklung vollständiger Instrumente; die parallele Plattform-Erprobung ist ausdrücklich erlaubt. D012, D014 und D017 gelten weiter. Diese Planänderung allein erteilt keinen Flash- oder Hardwareumbauauftrag. Tests sind noch nicht als durchgeführt vermerkt.

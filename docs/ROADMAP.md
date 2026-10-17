@@ -3,9 +3,9 @@
 Kleine, überprüfbare Meilensteine. Jeder Meilenstein endet mit einem **auf Hardware geprüften** Ergebnis oder einer dokumentierten Begründung, warum nicht.
 
 ```text
-M0 ─► M1 ─► M2 ─► M3 ─► M4 ─► M5 ─► M6 ─ ─ ► M7 (optional)
-Doku  AMY   Daisy  C++   Reso  PM    Gran    Multi-DSP
-      ▲ erste wichtige Fertigstellungsgrenze
+      ┌─► M1  Tulip + AMYboard ────────────┐
+M0 ───┤                                  ├─► M2b ─► M3 ─► M4 ─► M5 ─► M6 ─ ─ ► M7
+      └─► M2a Daisy Desktop eigenständig ─┘   Integration                      optional
 
 Gehäuse (D015), parallel:
       G1 Entwicklergehäuse (M1, Daisy-Platz ab M2) ───► G2 Endgehäuse (nach M4)
@@ -14,9 +14,10 @@ Gehäuse (D015), parallel:
 | M | Titel | Abhängig von | Status |
 |---|---|---|---|
 | M0 | Projekt-Bootstrap | – | abgeschlossen |
-| M1 | Erstes Hardwareinstrument (Tulip + AMYboard) | M0 | **als Nächstes** |
-| M2 | Daisy-Kompatibilität | M1 (Parametermodell, GUI) | offen |
-| M3 | Erste gemeinsame C++-Engine | M2 (Daisy-Toolchain), ESP-IDF-Build | offen |
+| M1 | Erstes Hardwareinstrument (Tulip + AMYboard) | M0 | **als Nächstes, parallel zu M2a** |
+| M2a | Daisy Desktop Dev Kit eigenständig erproben | M0; unabhängig von M1 | **als Nächstes, parallel zu M1** |
+| M2b | Verknüpfung bewerten und Daisy integrieren | Ergebnisse M1 + M2a | danach, offen |
+| M3 | Erste gemeinsame C++-Engine | M2b, Daisy-Toolchain, ESP-IDF-Build | offen |
 | M4 | Erweiterter Resonator-Synth | M3 | offen |
 | M5 | Physical Modeling | M4 | offen |
 | M6 | Granular Synth | M3 (Profile), Speichermessungen | offen |
@@ -42,6 +43,8 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 **Offene Reste aus M0** (blockieren M1 nicht):
 - Originaldokumente (Übergaben vom 09.10., Claude-Bericht) ins Repo legen → `docs/handovers/`
 - Windows-Werkzeuginventur erledigt (11.10.2026, `DEV_ENVIRONMENT.md`, Abschnitt 3); USB-REPL/Dateitransfer am Gerät in M1 noch UNGEPRÜFT
+
+**Inventarergänzung 11.10.2026:** Vorhandene Uno-/Nano-Boards und ST-LINK-V2-Programmer in [HARDWARE §7](HARDWARE.md#7-weitere-vorhandene-boards-und-werkzeuge--zweck-und-eignung-getrennt) aufgenommen. Zweckvorschläge und **UNGEPRÜFTE** Eignung getrennt; keine Verwendung beschlossen, keine Versuche begonnen (Q-HW-8 bis Q-HW-10).
 
 ---
 
@@ -80,18 +83,28 @@ Schritte (jeweils einzeln prüfbar):
 
 ## M2 – Daisy-Kompatibilität
 
-1. Audrey-Hardware, Seed-Revision und laufende Firmware dokumentieren.
-2. Original-Firmware sichern (Auslesen per DFU, sonst Archiv-`.bin` + Hash) – **D012**.
-3. Recovery-Verfahren einmal trocken durchspielen.
-3a. Daisy/Audrey mechanisch ins Entwicklergehäuse aufnehmen (G1 erweitern), Recovery-Zugang erhalten.
-4. Daisy-Toolchain auf dem Windows-Host prüfen (arm-none-eabi-gcc, make, dfu-util).
-5. Minimale eigene Firmware: USB-MIDI (libDaisy `MidiUsbHandler`), Note-On/Off, ein einfacher Klang (z. B. DaisySP `StringVoice`), 2–3 Parameter über CC/NRPN.
-6. Flash-Budget prüfen: passt in 128 KB oder Bootloader nötig?
-7. Tulip-Transport um Daisy-Zuordnung erweitern; gleiche GUI steuert Daisy.
+**Planänderung 11.10.2026 (D019):** Eigenständige Erprobung des Desktop Dev Kits parallel zu M1; Integration danach. Beide Wege sind geplant, Hardwaretests noch nicht begonnen/dokumentiert.
 
-**Prüfkriterien:** Original-Firmware wiederherstellbar · Tulip spielt Noten auf Daisy · Parameter wirken · Audioausgabe sauber.
-**Regel:** Keine große Engine portieren, bevor die Verbindung steht.
-**Risiken:** Flash-Grenze · USB-Host-Kompatibilität Tulip ↔ Daisy-USB-MIDI (UNGEPRÜFT) · Bedienelemente der Audrey in eigener Firmware neu belegen.
+### M2a – Daisy Desktop Dev Kit eigenständig erproben
+
+1. Seed3-/Dev-Kit-Revision, laufende Firmware, Anschlüsse und Versorgung dokumentieren.
+2. Mit vorhandener Firmware soweit möglich Audio-I/O und Bedienelemente prüfen; Ergebnisse und Grenzen festhalten.
+3. Daisy-Toolchain auf dem Windows-Host prüfen; kleines eigenständiges Synth-/Effekt-Testziel und passenden Entwicklungsweg wählen.
+4. Vor jeder später beauftragten Firmwareänderung Original-/Recovery-Image sichern und Wiederherstellungsweg dokumentieren (D012). Flash-/Bootloaderbudget anhand der tatsächlichen Revision und des Builds prüfen.
+5. Nach gesondertem Flashauftrag einfachen Klang/Effekt mit wenigen lokalen Parametern testen; Audioqualität und Stabilität messen. Keine Tulip-Anbindung als Voraussetzung.
+
+**Prüfkriterien:** Ausgangszustand und Recovery dokumentiert · Audio-I/O und lokale Bedienung praktisch geprüft · kleiner Versuch reproduzierbar · Stabilität und offene Probleme festgehalten.
+
+### M2b – Verknüpfung nach den praktischen Ergebnissen
+
+1. Erfahrungen aus M1 und M2a vergleichen: gewünschte gemeinsame Bedienung, Parameter, Steuerweg, Audioanschlüsse, Mixing und Versorgung.
+2. Einfachste passende Verbindung wählen; USB-MIDI, DIN/TRS-MIDI oder geeignete UART-Verbindung sind zu prüfende Kandidaten, keine festgelegte Anschlusslösung.
+3. Tulip-Transport und Parameterzuordnung für die gewählte Daisy-Anbindung ergänzen; denselben kleinen Daisy-Versuch über Tulip bedienen.
+4. Gemeinsame Audioführung zunächst konkret bewerten; digitale Verbindung/Erweiterung separat nach Nutzen und Aufwand entscheiden. Seed3–Seed-1.2-Koprozessor bleibt UNGEPRÜFTE M7-Option.
+
+**Prüfkriterien:** gewählte Verbindung begründet · Tulip steuert Daisy-Noten/Parameter passend zum Testinstrument · Audioausgabe und gemeinsamer Betrieb stabil.
+**Regel:** Keine große Engine oder Multi-DSP-Infrastruktur vor den kleinen praktischen Versuchen.
+**Audrey II:** eigenständige zusätzliche Option; vor einem Eingriff Revision, Firmware, Backup und Recovery gesondert klären. Kein Umbau für M2a erforderlich.
 
 ---
 
@@ -123,11 +136,16 @@ Sample-Verwaltung, Grain-Engine (Referenz: DaisyExamples `patch/Nimbus` = Clouds
 ## M7 – Multi-DSP-Experimente (optional, kein Teil von V1.0)
 Zwei AMYboards (S/PDIF-Kette, eigenes `override_send`-Voice-Splitting), zwei Daisys, Layering, FX-Modul. **Vor Beginn neu bewerten:** Aufwand, Nutzen, Clock-Sync, Latenz, Mischung.
 
+**Dokumentationsstand 11.10.2026:** [Seed3 Desktop Dev Kit + Seed 1.2 als rein digitaler DSP-Koprozessor](research/DAISY_DIGITAL_COPROCESSOR_OPTION.md) als ausdrücklich **UNGEPRÜFTE spätere Forschungsoption** aufgenommen. Zuerst revisionsrichtige Pin-AF-/KiCad-, Clock- und Versorgungsprüfung; Hardware-/Firmwareversuche erst nach gesondertem Auftrag. M7 wurde nicht begonnen; M1 bleibt der nächste Meilenstein.
+
 ---
 
 ## G2 – Endgültiges Gehäuse (nach M4)
 
 Erst wenn Modulzahl, Anschlüsse und Stromkonzept aus der Praxis feststehen.
+
+**Ideenstand 11.10.2026:** USB-Hub-Platine mit externem Netzteil als interne Stromverteilung festgehalten ([HARDWARE §6.5](HARDWARE.md#65-idee-usb-hub-platine-mit-externem-netzteil-als-stromverteilung-ungeprüft), Q-MECH-12). **UNGEPRÜFT**, Eignungsprüfung durch den Eigentümer offen; keine Umsetzung begonnen.
+
 1. Anforderungen aus G1 auswerten (HARDWARE.md §6).
 2. Stromkonzept bestätigen: Vorzug ist das ausgebaute RackBrute-6U-Netzteilmodul mit Bus für die DSP-Boards, Tulip mit eigener 5-V-Versorgung; Absicherung, Massekonzept, 5-V-Rückspeiseschutz beim Flashen (HARDWARE.md §6.4).
 3. CAD für 3D-Druck, Modulschacht mit Reserveplätzen, Anschlussfeld.

@@ -24,8 +24,11 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-HW-5 | Welche Audrey-Firmware läuft (`audrey-ii-v3.bin` oder `audrey-ii.bin`)? Unterschied? | Hash nach Auslesen vergleichen | M2 |
 | Q-HW-6 | Lässt sich die Original-Firmware per DFU vom Seed auslesen? | Test mit `dfu-util -U` (nur lesend) nach Freigabe | M2 |
 | Q-HW-7 | Erkennt der Tulip-USB-Host ein Daisy-USB-MIDI-Gerät? Oder Verbindung über TRS-MIDI/UART? | Test | M2 |
-| Q-HW-8 | Welche FAT32-SD-Karte funktioniert am eigenen AMYboard; besitzt die eigene Tulip-Revision eine SD-Erweiterung? | Revision/Firmware/Kartenmodell notieren, Mount- und Dateilesetest; siehe research/SD_CARDS_2026-10-11.md | M1 bei SD-Bedarf, kein KS-Blocker |
-| Q-HW-9 | Ist an der Audrey II ein SD-Sockel vorhanden/nachrüstbar und welche SDMMC-Pins sind zugänglich? Welche längsten Lesepausen entstehen? | Hardware prüfen; später mit passender Firmware messen, keine Stock-Unterstützung voraussetzen | bei Daisy-SD-Bedarf, spätestens M6 |
+| Q-HW-8 | Welchen konkreten Bedarf könnte das vorhandene Uno „ARD R3 DIP“ mit ATmega328 als Bedien-/Steuercontroller erfüllen, und ist es dafür geeignet? | Zweck zuerst wählen; dann Board/MCU, Zustand, Pins, Pegel, Versorgung und Timing prüfen; [HARDWARE §7](HARDWARE.md#7-weitere-vorhandene-boards-und-werkzeuge--zweck-und-eignung-getrennt) | bei Bedarf |
+| Q-HW-9 | Gibt es einen Zweck für das vorhandene AZ Delivery Nano V3 mit CH340; eignet sich das konkrete Board dafür? | Zweck und Eignung getrennt prüfen: MCU/Revision, Bootloader, USB/Treiber, Pins, Pegel und Timing | bei Bedarf |
+| Q-HW-10 | Ist der vorhandene „STM8 und STM32 Programmer ST-LINK V2 01“ für späteres Daisy-Debugging sinnvoll und kompatibel? Eigentümer vermutet keinen Nutzen. | Bedarf getrennt von Eignung prüfen: Variante, Funktion, Software-/Firmwareunterstützung, SWD-Zugang, Pinbelegung und Zielpegel; kein Flashauftrag | M2+, optional |
+| Q-HW-11 | Welche FAT32-SD-Karte funktioniert am eigenen AMYboard; besitzt die eigene Tulip-Revision eine SD-Erweiterung? | Revision/Firmware/Kartenmodell notieren, Mount- und Dateilesetest; siehe research/SD_CARDS_2026-10-11.md | M1 bei SD-Bedarf, kein KS-Blocker |
+| Q-HW-12 | Ist an der Audrey II ein SD-Sockel vorhanden/nachrüstbar und welche SDMMC-Pins sind zugänglich? Welche längsten Lesepausen entstehen? | Hardware prüfen; später mit passender Firmware messen, keine Stock-Unterstützung voraussetzen | bei Daisy-SD-Bedarf, spätestens M6 |
 
 ## Gehäuse und Mechanik (D015)
 
@@ -42,6 +45,7 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-MECH-5 | Massekonzept und Brummschleifen bei gemeinsamer Versorgung und gemeinsamen Audioausgängen | Messung | G2 |
 | Q-MECH-6 | Wärmeentwicklung im geschlossenen Gehäuse, Belüftungsbedarf | Temperaturmessung im Dauertest | G2 |
 | Q-MECH-7 | Welche Audioanschlüsse soll das Endgerät haben (Stereo-Out, Kopfhörer, Audio-In, Einzelausgänge je Modul, S/PDIF)? | Entscheidung Eigentümer nach M4 | G2 |
+| Q-MECH-12 | **UNGEPRÜFT:** Eignet sich die Platine eines USB-Hubs mit externem Netzteil als interne Stromverteilung für bis zu vier Module? Modell/Netzteilwerte, Betrieb ohne Host, Strom je Port/gesamt, Spannung unter Last, Schutzschaltungen, USB-Rückspeisung, Audio-Störungen und Wärme offen. | Eigentümer prüft; Idee vom 11.10.2026, siehe [HARDWARE §6.5](HARDWARE.md#65-idee-usb-hub-platine-mit-externem-netzteil-als-stromverteilung-ungeprüft) | G2 |
 
 ## Software / DSP
 
@@ -62,3 +66,9 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-LT-1 | Sample-Clock-Synchronisation zwischen mehreren Modulen (S/PDIF als Taktquelle?) |
 | Q-LT-2 | Analoges vs. digitales Mischen mehrerer Module |
 | Q-LT-3 | Kann ein Daisy Seed in eine AMYboard-S/PDIF-Kette eingebunden werden? |
+| Q-LT-4 | **UNGEPRÜFT:** Seed3 Desktop Dev Kit + Seed 1.2 als digitaler DSP-Koprozessor: passen D26/D27/D28 (ggf. D25/D24) einschließlich Pin-AF, SAI-Blöcken und KiCad-Netzen? Welche MUX-/Schalterfunktionen müssen entfallen, umgelegt oder elektrisch getrennt werden; gibt es alternative Pins? |
+| Q-LT-5 | **UNGEPRÜFT:** Wie werden Seed3-Codec und SAI2-Link gemeinsam getaktet? Sind DMA, Cache/Puffer, Einweg-/Duplex-Audio, Start/Reset und Langzeit-Synchronisierung ohne Sample-Slips möglich; welche Latenz entsteht? |
+| Q-LT-6 | **UNGEPRÜFT:** Welcher bidirektionale Steuerweg, Ereigniszeitbezug und digitales Mixing am Seed3 sind praktikabel? Kann Seed 1.2 ohne Nutzung seines Codecs im Audioweg arbeiten? |
+| Q-LT-7 | **UNGEPRÜFT:** Sind Signalpegel, ausgeschalteter Partner, Strombudget und USB-/externe Versorgung beider Seeds rückspeisefrei (auch über GPIO)? Siehe Q-MECH-8. |
+
+Prüfplan für Q-LT-4 bis Q-LT-7: [Daisy-Koprozessor-Forschungsoption](research/DAISY_DIGITAL_COPROCESSOR_OPTION.md), Stand 11.10.2026. Keine davon ist beantwortet; Forschung erst im optionalen M7 nach Neubewertung.

@@ -91,6 +91,8 @@ Hinweis aus dem Eigentümer-Archiv: `zadig-2.9.exe`, `DaisyExamples-master.zip` 
 
 ### Prüfskript (PowerShell, nur lesend)
 
+**Inventarergänzung 11.10.2026:** Ein „STM8 und STM32 Programmer ST-LINK V2 01“ ist laut Eigentümer vorhanden, aber ungenutzt. Erkennung, Funktion und Daisy-Kompatibilität sind **UNGEPRÜFT**; der Eigentümer vermutet keinen Nutzen. Optionaler Zweck als Debugwerkzeug und Eignung werden getrennt betrachtet, siehe [HARDWARE §7](HARDWARE.md#7-weitere-vorhandene-boards-und-werkzeuge--zweck-und-eignung-getrennt) und Q-HW-10. Das Vorhandensein belegt keine installierte Software und keinen funktionierenden Debugzugang.
+
 ```powershell
 $tools = 'git','gh','python','py','mpremote','cmake','ninja','make','mingw32-make',
          'g++','clang++','cl','arm-none-eabi-gcc','dfu-util','openocd','idf.py','esptool'

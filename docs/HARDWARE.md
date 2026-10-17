@@ -103,6 +103,10 @@ Im lokalen Archiv des Eigentümers liegt `audrey-ii-v3.bin` (92 192 Bytes, CRC32
 - DaisyExamples `patch/Torus` baut mit `-Os` (Größenoptimierung), ein Hinweis auf knappen Flash (GESCHÄTZT).
 - Für M2: erst klären, ob die eigene USB-MIDI-Firmware in 128 KB passt oder den Bootloader braucht.
 
+### 3.4 Seed3 Desktop Dev Kit + älterer Seed 1.2 (Forschungsoption, UNGEPRÜFT)
+
+Ergänzung vom 11.10.2026: mögliche rein digitale DSP-Erweiterung mit SAI2/I²S, analoger Audio-I/O nur über den Seed3-Codec. **Kein getesteter Aufbau.** D26/D27/D28 sind lediglich Pin-Kandidaten; die diskutierte MUX-/Schalter-Belegung, Pin-AF beider Seeds und revisionsrichtige KiCad-Netze müssen geprüft werden. Alternative Pins, Umlegen von Bedienelementen und Umlöten bleiben ungeprüfte Möglichkeiten. Vollständige Prüfmatrix einschließlich SAI-Clocks, DMA, Signalpegel, Audio-Sync, Steuerung, Mixing und Versorgung/USB-Backfeeding: [Forschungsoption](research/DAISY_DIGITAL_COPROCESSOR_OPTION.md). Kein Flash oder Hardwareeingriff erfolgt; M7 bleibt optional.
+
 ## 4. Backup und Recovery (Pflicht vor jeder Firmwareänderung, D012)
 
 Allgemeine Regeln:
@@ -231,3 +235,35 @@ Weitere Hersteller (z. B. Doepfer, Tiptop, DIY-Bausätze) sind nicht untersucht.
   - Die Aufteilung auf vier getrennte Kreise im 6U-Bus muss beim Belegen berücksichtigt werden (Budget je Kreis).
   - **5 V für den Tulip:** entweder ein eigenes USB-C-Netzteil (einfachste Lösung) oder ein fertiger DC/DC-Abwärtswandler aus der +12-V-Schiene (~0,6 A × 5 V ≈ 0,3 A an +12 V bei ~90 % Wirkungsgrad, passt ins Budget). Ein fertiges Wandlermodul ist keine eigene Netzteilplatine. In beiden Fällen gilt der Rückspeiseschutz beim Flashen (Q-MECH-8).
 - **Masse:** Tulip (USB-Netzteil) und AMYboard (Rack-Netzteil) sind über Grove-GND verbunden. Auf Brummschleifen achten (Q-HW-3, Q-MECH-5).
+
+### 6.5 Idee: USB-Hub-Platine mit externem Netzteil als Stromverteilung (UNGEPRÜFT)
+
+**Idee des Eigentümers, 11.10.2026:** Die Platine eines USB-Hubs mit eigenem externem Netzteil könnte im gemeinsamen Gehäuse als Stromverteilung dienen. Vorgesehen sind kurze Versorgungskabel zu bis zu vier Modulen: Tulip CC, AMYboard, Daisy Seed3 Desktop Dev Kit und Audrey II bzw. deren älterem Seed. Das externe Netzteil speist die Hub-Platine; diese ist als Verteiler gedacht. Eine Nutzung als USB-Datenhub ist damit nicht festgelegt.
+
+**Status: UNGEPRÜFT, lediglich festgehalten.** Hub-Modell, Netzteilwerte und geeignete Versorgungseingänge der Module sind noch zu bestimmen. Der Eigentümer prüft die Eignung; kein Umbau oder Anschluss wurde durchgeführt. Die Idee ist eine zusätzliche Option, keine Ablösung der bisherigen RackBrute-Vorzugslösung.
+
+Vor einer Umsetzung prüfen (Q-MECH-12):
+
+- Liefern die vorgesehenen Ausgänge ohne angeschlossenen Computer/USB-Host dauerhaft die benötigte Spannung und den benötigten Strom?
+- Reichen Strom je Port und Gesamtleistung mit Reserve für alle Module, Einschaltspitzen und die Dev-Kit-/Audrey-Peripherie? Spannung unter gleichzeitiger Last messen.
+- Welche Portschalter, Strombegrenzungen und Schutzschaltungen enthält die Platine? Beim Ausbau erhalten; keine ungeprüfte Überbrückung.
+- Ist Rückspeisung beim Anschluss eines Programmiercomputers ausgeschlossen, einschließlich Hub-Upstream, USB-VBUS und zusätzlicher Versorgung der Module (Q-MECH-8)?
+- Sind Masseführung, Audio-Störgeräusche, Wärme, isolierte Befestigung, Zugentlastung und Recovery-Zugänge geeignet?
+
+Für einen späteren Prüfbericht Hub-/Netzteilmodell, Ausgangswerte, verwendete Anschlüsse, Last und Messwerte dokumentieren. Keine bestätigte Eignung für die vier Module behauptet.
+
+## 7. Weitere vorhandene Boards und Werkzeuge – Zweck und Eignung getrennt
+
+Inventarhinweis des Eigentümers, 11.10.2026: folgende Teile liegen ungenutzt vor. Die Bezeichnungen und Bestückung wurden vom Eigentümer genannt, nicht am Gerät geprüft. **Keine Einplanung als zusätzliche Audio-DSP-Module und keine Hardwaretests erfolgt.**
+
+| Teil laut Eigentümer | Möglicher Zweck im Projekt (Vorschlag, keine Festlegung) | Eignung des konkreten Exemplars |
+|---|---|---|
+| Arduino Uno „ARD R3 DIP“, ATmega328 | Versuchsboard für Taster, Encoder, Potentiometer und einfache Steuerdaten; ggf. separate Bedienoberfläche | **UNGEPRÜFT:** genaue MCU-/Boardvariante, Zustand, Bootloader, Pins, Spannungspegel, Stromversorgung und benötigte Scan-/Übertragungsrate prüfen |
+| AZ Delivery Nano V3 mit CH340 | Kompakte Alternative für dieselben Bedien-/Steueraufgaben, falls ein zusätzlicher Controller tatsächlich benötigt wird | **UNGEPRÜFT:** MCU, Boardrevision, Bootloader, USB-/Treiberfunktion, Pins und Pegel prüfen; CH340-Angabe allein beschreibt nicht den Hauptprozessor |
+| „STM8 und STM32 Programmer ST-LINK V2 01“ | Optionales Programmier-/Debugwerkzeug für die STM32-basierten Daisys; kein zusätzliches Synthesemodul | **UNGEPRÜFT:** Identität/Variante, Funktion, Firmware-/Softwareunterstützung, Pinbelegung, Zielpegel und zugängliche SWD-Anschlüsse der jeweiligen Daisy prüfen |
+
+**ST-LINK-Einschätzung des Eigentümers:** vermutlich nutzlos. Diese Einschätzung bleibt getrennt von der technischen Eignungsprüfung: Für den normalen Instrumentbetrieb ist kein ST-LINK vorgesehen; bei späterer Firmwareentwicklung könnte er für Debugging nützlich sein. Ob das vorhandene Exemplar mit den eigenen Daisys funktioniert, ist offen. Die Bezeichnung „STM8 und STM32“ beschreibt hier den genannten Programmer, kein zusätzlich gemeldetes STM8-Board.
+
+**Referenzen, nur für den grundsätzlichen Zweck:** [Arduino UNO R3](https://docs.arduino.cc/hardware/uno-rev3/) beschreibt ein ATmega328P-Mikrocontrollerboard; diese Referenz bestätigt nicht die konkrete „ARD“-Variante. [STMicroelectronics ST-LINK/V2](https://www.st.com/en/development-tools/st-link-v2.html) beschreibt einen Programmer/Debugger mit SWIM für STM8 und JTAG/SWD für STM32; keine Bestätigung des vorliegenden „V2 01“-Exemplars. Quellen am 11.10.2026 gelesen.
+
+Vor einer Verwendung zuerst den konkreten Bedarf klären, danach die Eignung prüfen (Q-HW-8 bis Q-HW-10). Insbesondere bei Uno/Nano keine direkte Verbindung zu den ESP32-/Daisy-Steuerpins ohne Pegelprüfung vorsehen. Es wurden keine Treiber installiert, Geräte verbunden oder Firmware verändert.

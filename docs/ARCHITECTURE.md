@@ -139,6 +139,10 @@ Bekannte Bausteine (BELEGT, `tulipcc/docs/amyboard/faq.md`, Abschnitt „Chainin
 
 Ungelöste Probleme (bewusst offen gelassen): Sample-Clock-Synchronisation zwischen Modulen, Latenz, analoges vs. digitales Mischen, physisch begrenzte Schnittstellen (ob und wie ein Daisy Seed digital mit einem AMYboard-S/PDIF-Pfad verbunden werden kann, ist UNGEPRÜFT). Siehe OPEN_QUESTIONS.md.
 
+### 6.1 Forschungsoption: rein digitaler Daisy-Koprozessor (UNGEPRÜFT)
+
+Ein Seed3 Desktop Dev Kit könnte einen älteren Seed 1.2 über SAI2/I²S als reinen DSP-Koprozessor nutzen: analoge Audio-I/O und digitales Mixing am Seed3, zusätzlicher DSP ohne eigenen analogen Codec-Audioweg am Seed 1.2. **Die Machbarkeit ist UNGEPRÜFT.** Pin-Kandidaten D26/D27/D28 stehen möglicherweise mit MUX-/Schalterfunktionen in Konflikt; Clocking, Duplex, Steuerung und Versorgung sind offen. Prüfkriterien und Alternativen: [Forschungsoption](research/DAISY_DIGITAL_COPROCESSOR_OPTION.md). Nur spätere M7-Option, keine Implementierung oder Anforderung an V1.0.
+
 ## 7. Ausdrücklich nicht gebaut
 
 Engine-Manager, Cluster-Scheduler, verteilter Voice-Allocator, dynamische Audio-Routing-Matrix, Lastverteilung, eigenes Protokoll, automatische Capability-Erkennung, CI/CD-Infrastruktur, Plugin-/Desktop-Varianten.
