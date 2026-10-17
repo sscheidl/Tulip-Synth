@@ -78,6 +78,8 @@ Schritte (jeweils einzeln prüfbar):
 
 **Offener Bedienfehler:** Eigentümer meldet weiterhin falschen Touch und erneute Glitches. Laufzeit-WLAN-Aus-Test: Glitches verschwinden laut Eigentümer, Touch bleibt falsch. Auf Wunsch WLAN an und erneut neu gestartet; Verbindung bestätigt. Touch-Kalibrierung unverändert, keine praktische Menü-Abnahme; Details im Prüfbericht.
 
+**Touchmessung 17.10.2026:** zwei Fünfpunktdurchgänge jeweils nach sauberem Neustart durchgeführt. Kleine Korrektur ergibt keine belastbare Verbesserung (radial RMS 11,79 → 11,57 Pixel), daher keine neue Kalibrierung dauerhaft gespeichert und temporären Teststart entfernt. [Messwerte](research/TULIP_TOUCH_CALIBRATION_2026-10-17.md). Menübedienung und Grafikproblem weiterhin offen.
+
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).
 3. **Lokaler Klang:** Auf dem Tulip AMY-KS-Note spielen (`wave=amy.KS`), ohne AMYboard (D018).
