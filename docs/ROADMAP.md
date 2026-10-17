@@ -64,6 +64,8 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 
 **Abschlussbeobachtung:** Eigentümer bestätigt nach Neustart sauberes Bild bei 43,6 FPS. Standardtakt bleibt; Ursache der vorherigen Streifen und Verhalten mit erneut verbundenem WLAN weiterhin UNGEPRÜFT.
 
+**Firmwareumfang:** AMY 1.2.200 und Vorhandensein von `tulip.store_sample()` per REPL bestätigt. Relevante Upstream-Änderungen und API-Migration im Updatebericht festgehalten; keine funktionale Sample-/Audioprüfung.
+
 Schritte (jeweils einzeln prüfbar):
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).
