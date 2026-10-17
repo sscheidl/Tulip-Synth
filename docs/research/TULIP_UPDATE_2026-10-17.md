@@ -30,3 +30,9 @@ Recovery bei fehlgeschlagenem Boot: am UART-USB-Port des Makerfabs-Tulip mit Esp
 - WLAN nach Neustart zunächst nicht verbunden; erneut erfolgreich mit dem offenen WLAN verbunden. Kein automatischer Wiederverbindungsaufruf in `boot.py` hinterlegt, da das offene Netz nur vorübergehend ist.
 - `dirty` ist Teil der Build-Versionskennung, bereits vor dem Update vorhanden. Kein Beleg für beschädigte Firmware; genaue Abweichungen des Build-Quellbaums vom genannten Commit aus der Versionszeile UNGEPRÜFT.
 - Audio, Touch-Bedienung und Dauertest noch UNGEPRÜFT.
+
+## Bildwiederholrate nach Update (17.10.2026)
+
+BELEGT am selben Tulip (`TULIP4_R11`, Build `82e69df-dirty on 2026-10-14`), normale REPL an COM9: drei Aufrufe von `tulip.fps()` im Abstand von zwei Sekunden ergeben `43.61099`, `43.60529` und `43.59768` FPS. Damit aktuell rund 43,6 FPS bzw. rechnerisch 22,9 ms pro Frame. Aktueller Bildschirmzustand, kein Animations-/Lastbenchmark; keine Anzeigeeinstellung geändert.
+
+Einordnung aus [modtulip.c](https://github.com/shorepine/tulipcc/blob/main/tulip/shared/modtulip.c) und [esp32s3_display.c](https://github.com/shorepine/tulipcc/blob/main/tulip/esp32s3/esp32s3_display.c), main abgerufen 17.10.2026: `fps()` liefert `reported_fps`, berechnet über Frame-Synchronisationsintervalle. Das ist eine firmwareseitige Displayrate, keine Garantie der Aktualisierungsrate einer bestimmten Python-/LVGL-Animation; keine externe Messung am Panel.
