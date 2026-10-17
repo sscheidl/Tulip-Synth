@@ -59,7 +59,7 @@ Erledigte Fragen nicht löschen, sondern mit Antwort und Datum markieren.
 | Q-SW-6 | Passt eine Daisy-Firmware mit USB-MIDI + DaisySP-Voice in 128 KB internen Flash? | Build, `size` | M2 |
 | Q-SW-7 | Lizenzlage DaisySP-LGPL vs. DaisySP (MIT) für spätere Weitergabe | Lizenztexte | M4 |
 
-Q-SW-8 (M1): Behebt der Touch-Snapshot-Abgleich die Voices-Notenhänger beim Gleiten und Mehrfingertouch? Weitere Last-/Ereignisverluste? Laufzeitkorrektur installiert, Eigentümerbestätigung ausstehend; [Prüfbericht](research/TULIP_VOICES_TOUCH_2026-10-17.md).
+Q-SW-8 (M1), für den gemeldeten Bedienfall geklärt am 17.10.2026: Eigentümer bestätigt behobene Voices-Notenhänger mit Touch-Snapshot-Abgleich bei unverändertem Displaytakt. Korrektur nur zur Laufzeit aktiv; Bootintegration und Dauertest offen. Keine allgemeine Aussage über sämtliche Last-/Ereignisverluste; [Prüfbericht](research/TULIP_VOICES_TOUCH_2026-10-17.md).
 
 ## Langfristig (M7, nicht dringend)
 

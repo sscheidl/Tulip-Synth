@@ -23,3 +23,7 @@ Vier Hosttests bestanden: Gleiten/Endfreigabe, Teilfreigabe eines Akkords und wi
 BELEGT am Gerät: neue Datei /user/lib/voices_touch.py installiert, SHA-256 verglichen, apply() ohne Ausnahme ausgeführt, anfänglich null eigene aktive Noten. Bootdatei, WLAN, Displaytakt und Touchkalibrierung unverändert. Kein automatischer Start. Neustart entfernt die Laufzeitinstallation; die unbenutzte Datei verbleibt. Erneuter Test: zuerst Voices öffnen, dann import voices_touch; voices_touch.apply().
 
 **Ausstehend / UNGEPRÜFT:** Eigentümer wiederholt schnelle Folge, Gleiten und Mehrfingerbedienung bei unverändertem Standardtakt. Keine erfolgreiche praktische Fehlerbehebung behauptet. Erst danach gegebenenfalls kontrollierter Taktvergleich mit identischem Patch, Polyphonie und WLAN-Zustand.
+
+## Praktische Bestätigung
+
+BELEGT durch Eigentümer nach aktiviertem Laufzeittest: „super - fehler behoben. Liegt nicht an Displayfrequenz“. Die Touch-Notenkorrektur beseitigt den gemeldeten Fehler bei unverändertem Displaytakt; eine Taktreduktion ist für diesen Fehler nicht erforderlich. Kein zusätzlicher Taktvergleich nötig. Damit praktische Wirksamkeit für den gemeldeten Bedienfall bestätigt, kein allgemeiner Last- oder Dauertest. Das separate Grafik-/WLAN-Problem bleibt offen. Korrektur weiterhin nur zur Laufzeit aktiv; keine Bootintegration vorgenommen.
