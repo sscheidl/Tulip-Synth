@@ -40,19 +40,27 @@ def _launcher(event=True):
 def _resize_button(screen):
     if screen.name != "repl":
         return
-    button = screen.launcher_button
+    # MicroPython LVGL wraps Python callbacks: remove_event_cb(function)
+    # returns False on this build and leaves duplicate toggle callbacks behind.
+    # Replace the stock button instead of attempting callback removal.
+    screen.launcher_button.delete()
+    button = lv.button(screen.group)
+    screen.launcher_button = button
+    button.set_style_bg_color(ui.pal_to_lv(36), lv.PART.MAIN)
+    button.set_style_radius(0, lv.PART.MAIN)
     button.set_size(96, 72)
     button.align(lv.ALIGN.BOTTOM_RIGHT, -12, -12)
-    label = button.get_child(0)
+    label = lv.label(button)
     label.set_text("Menu")
     label.set_style_text_font(_font(), 0)
     label.center()
-    button.remove_event_cb(_original_launcher)
-    button.remove_event_cb(_launcher)
     button.add_event_cb(_launcher, lv.EVENT.CLICKED, None)
 
 
 def _draw_task_bar(screen):
+    # Upstream creates a fresh REPL launcher on every present().
+    if screen.name == "repl":
+        screen.launcher_button.delete()
     _original_draw_task_bar(screen)
     _resize_button(screen)
 

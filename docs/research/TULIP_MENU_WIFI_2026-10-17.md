@@ -35,3 +35,12 @@ Menü nach Neustart geöffnet: Eintragsmindesthöhe erneut 52 Pixel bestätigt; 
 Eigentümer meldet Menü per Finger nicht nutzbar, Touch reagiert falsch, erneut Display-Glitches. WLAN ausschließlich zur Laufzeit ausgeschaltet, Menü und Displaytakt unverändert. Abschließende eindeutige Auswahl des Eigentümers: „Glitches weg, Touch weiterhin falsch“ (ersetzt die zuvor gesendete Zahl 3). Das spricht für getrennt zu prüfende Probleme, beweist jedoch noch keine bestimmte WLAN-/Displayursache.
 
 Auf ausdrücklichen Wunsch WLAN aktiviert belassen und erneut neu gestartet. Danach BELEGT: automatische WLAN-Verbindung mit IP, 43,61289 FPS, Menüanpassung geladen. Ausgelesene unveränderte Touch-Kalibrierung `(-2, -12, 0.8)` entspricht den voreingestellten GT911-Werten des Upstream-Codes; ohne gezielte Koordinatenmessung keine Korrektur vorgenommen. Visuelle Grafikstabilität nach diesem Neustart und Ursache des Touchfehlers weiterhin UNGEPRÜFT. Menüanpassung damit noch nicht als praktisch nutzbar abgenommen.
+
+
+## Menü öffnet per Touch nicht: Callback-Korrektur
+
+Eigentümer meldet ausdrücklich: Menü lässt sich per Touch nicht öffnen. BELEGT am Tulip TULIP4_R11, COM9, unveränderte Firmware vom 14.10.2026: alter Button hat drei Ereignisregistrierungen; `remove_event_cb()` liefert sowohl für den Original- als auch den Ersatzcallback `False`. Synthetisches `button.send_event(lv.EVENT.CLICKED, None)` lässt das Menü geschlossen. Zusammen mit der Registrierung im eigenen Code spricht dies für doppeltes Umschalten; ein physischer Touch-Ereignisverlauf wurde nicht aufgezeichnet.
+
+Korrektur: Originalbutton löschen und durch einen Button mit einmal registriertem Menücallback ersetzen. Vor erneutem `draw_task_bar()` den bisherigen REPL-Button löschen, da Upstream jedes Mal einen neuen erzeugt. Keine Änderung an Bootdatei, WLAN, Touchkalibrierung oder Firmware. Vorherige Menüdatei lokal unter `C:/Users/ssche/Tulip-Synth-Backups/Tulip-menu-2026-10-17/large_menu-before-fix.py` gesichert. Neue Datei bytegenau auf dem Gerät verifiziert.
+
+BELEGT nach Neustart: zwei gesamte Ereignisregistrierungen am neuen Button (eins weniger als zuvor); synthetischer Klick öffnet, zweiter schließt. Nach `ui.repl_screen.present()` genau ein Kind im REPL-Container und weiterhin zwei Ereignisregistrierungen. Die Gesamtzahl enthält LVGL-interne Registrierungen und ist nicht mit der Zahl eigener Menücallbacks gleichzusetzen. Praktische Fingerbedienung, echter App-Wechsel und Dauertest weiterhin **UNGEPRÜFT**. Grafikproblem bleibt separat offen.

@@ -16,3 +16,5 @@ Rücknahme: die beiden Aufrufe aus `/user/boot.py` entfernen und neu starten. Ni
 Die ursprüngliche Startdatei liegt lokal außerhalb des Git unter `C:\Users\ssche\Tulip-Synth-Backups\Tulip-menu-2026-10-17\boot-before.py`. Sie entstand vor Einrichtung des WLAN-Passworts. Keine Zugangsdaten in dieses Repository übernehmen.
 
 API-Herkunft: eigene dünne Anpassung um die vorhandenen Klassen/Funktionen aus [shorepine/tulipcc ui.py](https://github.com/shorepine/tulipcc/blob/17d1ef1d14aa0a51520fced04c87c1328f79bbd0/tulip/shared/py/ui.py) (MIT). Kein Upstream-Code kopiert. Keine neue Abhängigkeit.
+
+Callback-Korrektur 17.10.2026: Der Originalbutton wird ersetzt, weil `remove_event_cb()` auf dem Gerätebuild die Python-Callbacks nicht entfernt. Synthetisches Öffnen/Schließen nach Neustart und erneutes REPL-Anzeigen geprüft; tatsächliche Touchbedienung weiterhin **UNGEPRÜFT**. Details im [Prüfbericht](../../docs/research/TULIP_MENU_WIFI_2026-10-17.md).
