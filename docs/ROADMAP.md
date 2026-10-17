@@ -58,6 +58,8 @@ Abgeschlossen am 10.10.2026, Branch `claude/brave-hopper-u0eei2`, Commit `be6a9d
 
 **Displaymessung 17.10.2026:** `tulip.fps()` dreimal ausgelesen: rund 43,6 FPS. Im Updatebericht dokumentiert; kein Animations-/Lastbenchmark.
 
+**Grafikdiagnose 17.10.2026:** Eigentümer meldet wandernde Streifen. Pixeltakt vorübergehend von 36 auf 33 MHz reduziert; etwa 40,0 FPS gemessen. Visuelle Fehlerbehebung noch UNGEPRÜFT; Verlauf im Updatebericht, keine Bootdateiänderung.
+
 Schritte (jeweils einzeln prüfbar):
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).
