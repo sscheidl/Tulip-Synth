@@ -58,6 +58,8 @@ Quellen, Abrufstand und Abgrenzung von Herstellerangaben, Rechnungen und ungepr�
 
 ## Nicht verf체gbare Originaldokumente
 
+Direkte Voices-App-Korrektur (17.10.2026): devices/tulip/voices.py basiert auf [Upstream Voices, 17d1ef1](https://github.com/shorepine/tulipcc/blob/17d1ef1d14aa0a51520fced04c87c1328f79bbd0/tulip/shared/py/voices.py); MIT, Copyright Brian Whitman. Vollst채ndige Upstream-Lizenz in devices/tulip/LICENSE.tulipcc. Touch-Notenabgleich und Lifecycle-Freigabe lokal ge채ndert. Ersetzt den fr체heren eigenen Laufzeitadapter. Startweg: [tulip_graphics.py](https://github.com/shorepine/tulipcc/blob/17d1ef1d14aa0a51520fced04c87c1328f79bbd0/tulip/shared/py/tulip_graphics.py).
+
 Voices-Touch-Diagnose (17.10.2026): [Voices](https://github.com/shorepine/tulipcc/blob/main/tulip/shared/py/voices.py) und [GT911-Treiber](https://github.com/shorepine/tulipcc/blob/main/tulip/esp32s3/gt911_touchscreen.c), MIT, main abgerufen 17.10.2026. Eigene Anpassung devices/tulip/voices_touch.py verwendet Geometrie und APIs, kein Upstream-Code kopiert. Eingefrorener Ger채tecode nicht bytegleich verglichen.
 
 - `claude/Tulip_Synth_Machbarkeit_Roadmap_2026-10-09.md`

@@ -1,5 +1,7 @@
 # Voices: Notenhänger bei Touch – 17.10.2026
 
+Aktueller Endstand: Korrektur direkt in der bearbeitbaren App /sys/ex/voices.py installiert. Kein Voices-Eintrag in boot.py, kein zusätzlicher Laufzeitadapter erforderlich. Frühere Laufzeittestabschnitte unten dokumentieren die Vorgeschichte.
+
 Hardware: Tulip CC TULIP4_R11, COM9/115200, Firmware 82e69df-dirty vom 14.10.2026, AMY 1.2.200. Keine Firmwareänderung.
 
 ## Beobachtungen
@@ -27,3 +29,13 @@ BELEGT am Gerät: neue Datei /user/lib/voices_touch.py installiert, SHA-256 verg
 ## Praktische Bestätigung
 
 BELEGT durch Eigentümer nach aktiviertem Laufzeittest: „super - fehler behoben. Liegt nicht an Displayfrequenz“. Die Touch-Notenkorrektur beseitigt den gemeldeten Fehler bei unverändertem Displaytakt; eine Taktreduktion ist für diesen Fehler nicht erforderlich. Kein zusätzlicher Taktvergleich nötig. Damit praktische Wirksamkeit für den gemeldeten Bedienfall bestätigt, kein allgemeiner Last- oder Dauertest. Das separate Grafik-/WLAN-Problem bleibt offen. Korrektur weiterhin nur zur Laufzeit aktiv; keine Bootintegration vorgenommen.
+
+## Dauerhafte direkte App-Korrektur
+
+Eigentümer beauftragt dauerhafte Integration und präzisiert: App direkt verbessern, keine Voices-Anpassung in boot.py. Ein zwischenzeitlich ergänzter Voices-Boot-Aufruf wurde vollständig zurückgenommen. SHA-256 der verbleibenden Bootdatei stimmt mit der unmittelbar zuvor lokal gesicherten Datei überein. Sicherung mit persönlichen Einstellungen ausschließlich lokal unter C:/Users/ssche/Tulip-Synth-Backups/Tulip-menu-2026-10-17/boot-before-voices.py. Keine Zugangsdaten ausgegeben oder ins Repository übernommen.
+
+Tulips run() entfernt bestehende Modulimporte und lädt die App neu; ein Boot-Monkeypatch ist deshalb auch technisch ungeeignet. Der vorhandene Startweg wählt /sys/ex als Arbeitsverzeichnis, wenn dort voices.py liegt, und importiert die bearbeitbare Datei vor dem eingefrorenen Modul. BELEGT am Gerät durch Vorhandensein der neuen _active-Notenverwaltung und durch nicht geladenen voices_touch-Adapter.
+
+Direkte App basiert auf shorepine/tulipcc@17d1ef1d14aa0a51520fced04c87c1328f79bbd0, tulip/shared/py/voices.py, MIT. Lizenz vollständig in devices/tulip/LICENSE.tulipcc. Eingefrorener Gerätecode nicht bytegleich verglichen. Nur Touch-Notenverwaltung und Freigabe bei Aktivieren/Deaktivieren/Beenden geändert; UI und Synth-Auswahl aus Upstream übernommen. Die vier Hosttests prüfen jetzt die Funktionen der direkten App statt des früheren Adapters.
+
+BELEGT: /sys/ex/voices.py und LICENSE.voices-tulipcc neu angelegt (vorher keine bearbeitbare voices.py vorhanden), Übertragung jeweils per SHA-256 geprüft. Nach Neustart normaler Aufruf tulip.run('voices') erfolgreich, neue Notenverwaltung und Aktivierungscallback vorhanden. Schließen und erneutes Öffnen ebenfalls erfolgreich. voices_touch nicht in sys.modules. Display weiterhin 36 MHz / 43,60719 FPS. Kein Firmwareflash, WLAN unverändert. Nach Systemdatei-Updates lokale App prüfen und bei Überschreiben erneut installieren. Abschließender erneuter Finger-/Dauertest der direkt integrierten Variante bleibt UNGEPRÜFT; die zugrunde liegende Notenlogik wurde zuvor praktisch bestätigt.

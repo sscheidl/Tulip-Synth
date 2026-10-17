@@ -1,5 +1,5 @@
 """Host checks for note lifecycle; no hardware/audio claims."""
-import importlib.util
+import ast
 from pathlib import Path
 import sys
 from types import SimpleNamespace
@@ -26,11 +26,16 @@ class TouchNotes(unittest.TestCase):
             'tulip': SimpleNamespace(touch=lambda: self.coords),
             'voices': SimpleNamespace(app=self.app),
             'midi': SimpleNamespace(config=SimpleNamespace(get_synth=self.synths.get))}
-        spec = importlib.util.spec_from_file_location(
-            'voices_touch_test', Path(__file__).with_name('voices_touch.py'))
-        self.fix = importlib.util.module_from_spec(spec)
-        with patch.dict(sys.modules, modules):
-            spec.loader.exec_module(self.fix)
+        tree = ast.parse(Path(__file__).with_name('voices.py').read_text())
+        functions = {'_note', '_release', 'touch'}
+        assignments = {'_active', '_white', '_black'}
+        nodes = [node for node in tree.body
+                 if (isinstance(node, ast.FunctionDef) and node.name in functions)
+                 or (isinstance(node, ast.Assign) and
+                     any(isinstance(t, ast.Name) and t.id in assignments for t in node.targets))]
+        namespace = dict(modules, app=self.app)
+        exec(compile(ast.Module(body=nodes, type_ignores=[]), 'voices.py', 'exec'), namespace)
+        self.fix = SimpleNamespace(**namespace)
 
     def test_slide_releases_previous_note_and_final_release_clears_all(self):
         self.fix.touch(0)
@@ -64,6 +69,7 @@ class TouchNotes(unittest.TestCase):
         self.fix.touch(0)
         self.assertEqual(self.events[-1], (1, 'off', 48))
         self.assertEqual(self.app.held_note, {})
+
 
 
 if __name__ == '__main__':

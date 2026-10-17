@@ -82,7 +82,7 @@ Schritte (jeweils einzeln prüfbar):
 
 **Menü-Callback-Korrektur 17.10.2026:** Entfernen der bisherigen Python-Callbacks schlägt am Gerät fehl; Menübutton durch einmal registrierten Ersatz ersetzt. Nach Neustart synthetisches Öffnen/Schließen und erneutes REPL-Anzeigen geprüft. Fingerbedienung weiterhin **UNGEPRÜFT**, Benutzerbestätigung ausstehend; [Befund](research/TULIP_MENU_WIFI_2026-10-17.md).
 
-**Touch-Folgetest 17.10.2026:** Eigentümer bestätigt Menüöffnung per Finger. Voices-Notenhänger vor allem bei Gleiten/mehreren Fingern durch gezielten Touch-Notenabgleich behoben, vom Eigentümer praktisch bestätigt. Displaytakt unverändert 36 MHz; keine Taktreduktion erforderlich. Vier Hosttests bestanden. Korrektur nur zur Laufzeit aktiv, Bootintegration und Dauertest offen; [Prüfbericht](research/TULIP_VOICES_TOUCH_2026-10-17.md).
+**Touch-Folgetest 17.10.2026:** Eigentümer bestätigt Menüöffnung per Finger. Voices-Notenhänger vor allem bei Gleiten/mehreren Fingern durch gezielten Touch-Notenabgleich behoben, vom Eigentümer praktisch bestätigt. Auf Wunsch direkt in bearbeitbare App unter /sys/ex/voices.py integriert; nach Neustart und erneutem Öffnen automatisch geladen. Voices-Boot-Eintrag zurückgenommen, ursprüngliche Bootdatei per SHA-256 bestätigt. Displaytakt unverändert 36 MHz. Vier Hosttests der direkten App-Logik bestanden. Dauertest offen; [Prüfbericht](research/TULIP_VOICES_TOUCH_2026-10-17.md).
 
 1. **Hardware-Inventur:** Tulip- und AMYboard-Firmwareversion notieren, Fotos, Revisionen (HARDWARE.md ergänzen).
 2. **Strom:** AMYboard über eigenes USB-C oder den RackBrute-Bus (+12 V) versorgen, nicht über den Tulip; Tulip an 1–2-A-Netzteil (HARDWARE.md 2.1, 6.4).
